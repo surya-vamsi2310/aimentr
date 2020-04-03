@@ -3,21 +3,15 @@ import { LoginComponent } from './login/login.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RegisterComponent } from './register/register.component';
-import { HomeScreenComponent } from './home-screen/home-screen.component';
 
-import { DashboardCoursesComponent } from './dashboard-courses/dashboard-courses.component';
 
 
 export const Routes = [
     {
         path: '', component: HomeComponent,
-        children: [
+        children: [            
             {
-                path : "",
-                component : HomeScreenComponent
-            },
-            {
-                path: "Landing",
+                path: "",
                 component: LandingPageComponent
             },
             {
@@ -31,10 +25,6 @@ export const Routes = [
             {
                 path: "stepper",
                 component: StepperComponent
-            },
-            {
-                path: "learn",
-                component: DashboardCoursesComponent
             },
         ]
     },

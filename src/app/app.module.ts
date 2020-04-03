@@ -96,19 +96,20 @@ import {
 
 // our Modules //
 import { HomeModule } from './Home/home.module';
+import { DashboardModule } from './Dashboard/dashboard.module'
 
 
 @NgModule({
   declarations: [
     AppComponent,
-   
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
 
@@ -134,8 +135,9 @@ import { HomeModule } from './Home/home.module';
     WavesModule.forRoot(),
     // MDB end=============
 
-    HomeModule
-     ////start material
+    HomeModule,
+    DashboardModule
+    ////start material
     //  A11yModule,
     //  CdkStepperModule,
     //  CdkTableModule,
@@ -178,7 +180,7 @@ import { HomeModule } from './Home/home.module';
     //  MatTreeModule,
     //  PortalModule,
     //  ScrollingModule,
-     //// end materiali
+    //// end materiali
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

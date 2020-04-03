@@ -76,25 +76,23 @@ import { MatTreeModule } from '@angular/material/tree';
 // import { PipesModule } from '../Pipes/pipes.module';
 // import { DirectivesModule } from '../Directives/directives.module';
 
-import { Routes } from './homeRouts';
+import { Routes } from './dashboardRouts';
 
-import { LoginComponent } from './login/login.component';
-import { StepperComponent } from './stepper/stepper.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
+import { DashboardCoursesComponent } from './dashboard-courses/dashboard-courses.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DetailCourseComponent } from './detail-course/detail-course.component';
+import { HomeScreenComponent } from './home-screen/home-screen.component';
+
+
 
 
 
 @NgModule({
     declarations: [
-        HomeComponent,
-        LoginComponent,
-        StepperComponent,
-        LandingPageComponent,
-        NavbarComponent,
-        RegisterComponent,
+        DashboardCoursesComponent,
+        DashboardComponent,
+        DetailCourseComponent,
+        HomeScreenComponent
     ],
     imports: [
         BrowserModule,
@@ -180,4 +178,4 @@ import { HomeComponent } from './home/home.component';
 
     ],
 })
-export class HomeModule { }
+export class DashboardModule { }
