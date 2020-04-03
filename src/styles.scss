@@ -2,7 +2,6 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 // // @import '../src/app/stepper/stepper.component.scss';
 
-
 * {
     font-family: "Roboto";
     // font-weight: 400;
@@ -13,7 +12,6 @@ body {
     // box-sizing: border-box;
     // margin: 0;
     // font-family: "Roboto !";
-  
 }
 
 // // html, body { height: auto; overflow: hidden;}
@@ -164,7 +162,9 @@ body {
 .line-height {
     line-height: 1.5;
 }
-
+.btn-rounded {
+    border-radius: 25px !important;
+}
 
 // .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
 // .mat-checkbox-checked.mat-accent .mat-checkbox-background {
