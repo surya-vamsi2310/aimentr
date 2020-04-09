@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { ToastrModule } from 'ngx-toastr';
 
 // import { MatCardModule } from '@angular/material/card';
 // import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -136,7 +136,7 @@ import { DashboardModule } from './Dashboard/dashboard.module'
     // MDB end=============
 
     HomeModule,
-    DashboardModule
+    DashboardModule,
     ////start material
     //  A11yModule,
     //  CdkStepperModule,
@@ -181,6 +181,13 @@ import { DashboardModule } from './Dashboard/dashboard.module'
     //  PortalModule,
     //  ScrollingModule,
     //// end materiali
+
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      enableHtml: true
+    }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

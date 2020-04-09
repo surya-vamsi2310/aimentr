@@ -4,6 +4,10 @@ import { StepperComponent } from './stepper/stepper.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RegisterComponent } from './register/register.component';
 
+import { TranslationComponent } from './translation/translation.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { MentorshipRegistrationComponent } from './mentorship-registration/mentorship-registration.component';
+import { OtpVerifycationComponent } from './otp-verifycation/otp-verifycation.component';
 
 
 export const Routes = [
@@ -23,8 +27,25 @@ export const Routes = [
                 component: RegisterComponent
             },
             {
-                path: "stepper",
-                component: StepperComponent
+                path: "verifyotp",
+                component: OtpVerifycationComponent
+            },
+            
+            // {
+            //     path: "profile",
+            //     component: StepperComponent
+            // },
+            {
+                path: "studentprofile",
+                component: StudentProfileComponent
+            },
+            {
+                path: "mentorshipregistration",
+                component: MentorshipRegistrationComponent
+            },
+            {
+                path: "translate",
+                component: TranslationComponent
             },
         ]
     },
