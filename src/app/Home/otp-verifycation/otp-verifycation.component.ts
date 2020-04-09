@@ -41,8 +41,7 @@ export class OtpVerifycationComponent implements OnInit {
   ngOnInit() { }
 
   proceed() {
-    if (this.VerifyOtp.otp != "") {
-      this.showErrMsg = false;
+  
       var url = APIURL.VERIFY_OTP;
       this.CommonService.postMethod(url, this.VerifyOtp)
         .subscribe((data: Data) => {
@@ -58,9 +57,7 @@ export class OtpVerifycationComponent implements OnInit {
 
           }
         })
-    } else {
-      this.showErrMsg = true;
-    }
+   
 
   }
 

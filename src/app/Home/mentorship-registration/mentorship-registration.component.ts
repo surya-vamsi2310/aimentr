@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, FormControl, NgModel } from '@angular/forms';
 import { CommonService } from '../../Services/common.service';
 import { Router, NavigationExtras, ActivatedRoute, Data } from '@angular/router';
 import { EncrDecrService } from '../../Services/encr-decr.service'
-import { APIURL } from '../../url'
+import { APIURL } from '../../url';
+import { ToastrService } from 'ngx-toastr';
+
 enum roles {
   admin = 1,
   student = 2,
@@ -37,52 +39,51 @@ export class MentorshipRegistrationComponent implements OnInit {
       gender: "",
       mobile: null,
       about: "",
-      dob: { year: null, month: null, day: null },
+      dob: "",
       location: "",
       mail: "",
-      name: ""
+      // name: ""
+    },
+
+    work: {
+      experienceLevel: "",
+      experiences: [],
+      context:""
     },
 
     education: {
       college: "",
       degree: "",
       graduationYear: null,
-      skills: []
+      skills: ""
     },
-    work: {
-      experienceLevel: "",
-      experiences: [
-        {
-          company: "",
-          duration: { start: { year: null, month: null, day: null }, end: { year: null, month: null, day: null }, current: false },
-          role: "",
-          description: ""
-        }
-      ]
-    },
+
     analysis: {},
     training: {},
     mentor: {
-      timings: [],  // {Start: '', end: ''}
+      timings: {
+        start: "",
+        end: ""
+      },
       languagesTeach: [],
-      context: [],
+      context: "",
       classification: [],
       jobType: "",
       avgCost: "",
-      reputation: ""
     },
+
     learningAssets: {
       interestedAreas: [],
       financialAid: false,
       isOpportunities: false,
-      opportunityType: []
+      opportunityType: ""
     }
   }
 
 
   UrlData;
   ExtractedData = {
-    username:"",
+    username: "",
     Email: "",
     MobileNumber: null,
     Context: null,
@@ -92,17 +93,36 @@ export class MentorshipRegistrationComponent implements OnInit {
   }
 
 
+  ProgrammingLanguages = [
+    { language: "Python", selected: false },
+    { language: "Angular", selected: false },
+    { language: "AngularJS", selected: false },
+    { language: "NodeJs", selected: false },
+    { language: "Deep Learning", selected: false },
+    { language: "Machine Learning", selected: false },
+    { language: "Devops", selected: false },
+    { language: "Html5", selected: false },
+    { language: "CSS", selected: false }
+  ]
+
+  SelectedprogrammingLanguage = "";
+  SelectedprogrammingLanguages = [];
+
+
+
+
   constructor(private _formBuilder: FormBuilder,
     private CommonService: CommonService,
     private router: Router,
     private route: ActivatedRoute,
-    private EncrDecrService: EncrDecrService) {
+    private EncrDecrService: EncrDecrService,
+    private toastr: ToastrService,) {
     this.route.queryParams.subscribe(params => {
-      console.log(params.Data)
+      // console.log(params.Data)
       var DecriptedData = this.EncrDecrService.get(params.Data);
       this.UrlData = JSON.parse(DecriptedData);
       this.ExtractedData = {
-        username:this.UrlData.username,
+        username: this.UrlData.username,
         Email: this.UrlData.Email,
         MobileNumber: this.UrlData.MobileNumber,
         Context: this.UrlData.Context,
@@ -111,7 +131,7 @@ export class MentorshipRegistrationComponent implements OnInit {
         role: this.UrlData.role
       };
       console.log("UrlData", this.UrlData);
-      
+
       this.urlDataAssignedToPayload()
 
     })
@@ -126,25 +146,82 @@ export class MentorshipRegistrationComponent implements OnInit {
     });
   }
 
-  urlDataAssignedToPayload(){
-    this.Payload.email =  this.ExtractedData.Email;
-    this.Payload.username =  this.ExtractedData.username;
-    this.Payload.role =  this.ExtractedData.role;
-    this.Payload.personal.mail =  this.ExtractedData.Email;
-    this.Payload.personal.mobile =  this.ExtractedData.MobileNumber;
+  urlDataAssignedToPayload() {
+    this.Payload.email = this.ExtractedData.Email;
+    this.Payload.username = this.ExtractedData.username;
+    this.Payload.role = this.ExtractedData.role;
+    this.Payload.personal.mail = this.ExtractedData.Email;
+    this.Payload.personal.mobile = this.ExtractedData.MobileNumber;
 
-
-    // this.Payload.work.experiences
-
-    this.Payload.mentor.context = this.ExtractedData.Context;
+    this.Payload.work.experiences = this.ExtractedData.Experience;
+    this.Payload.work.context = this.ExtractedData.Context;
 
   }
 
-
-
-  personalToWork(){
+  personalToWork() {
     console.log(this.Payload);
   }
+
+  addProgrammings() {
+    this.SelectedprogrammingLanguages = [];
+
+    this.ProgrammingLanguages.forEach(lng=>{
+      if(lng.language == this.SelectedprogrammingLanguage){
+        lng.selected = true;
+      }
+    })
+
+    this.SelectedprogrammingLanguages = this.ProgrammingLanguages.filter(lng=> lng.selected == true)
+
+    console.log(this.SelectedprogrammingLanguages );
+    console.log("this.ProgrammingLanguages" , this.ProgrammingLanguages );
+  }
+
+
+  RemoveFromSelectedProgrammingLanguage(item){
+    this.SelectedprogrammingLanguages = [];
+    this.ProgrammingLanguages.forEach(lng=>{
+      if(lng.language == item.language){
+        lng.selected = false;
+      }
+    });
+    this.SelectedprogrammingLanguages = this.ProgrammingLanguages.filter(lng=> lng.selected == true)
+  }
+ 
+
+
+
+  OnSubmitRegistrationForm(){
+    this.SelectedprogrammingLanguages.forEach(lang=>{
+      var obj = {
+        language : lang.language
+      }
+     this.Payload.mentor.languagesTeach.push(obj);
+    })
+
+
+    console.log( this.Payload);
+
+
+    var url = APIURL.AUTH_REGISTER_USER;
+    this.CommonService.postMethod(url, this.Payload)
+      .subscribe((data: Data) => {
+        console.log("Data===>", data);
+        if (data.success) {
+
+          this.toastr.success(data.msg, "Success !");
+          // this.router.navigate(['/mentorshipregistration'], { queryParams: { Data: this.userParams } })
+
+        }
+        else {
+          this.toastr.warning(data.msg, "Error !");
+        }
+      })
+
+
+
+  }
+
 
 
 
