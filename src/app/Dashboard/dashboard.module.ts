@@ -82,6 +82,8 @@ import { DashboardCoursesComponent } from './dashboard-courses/dashboard-courses
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DetailCourseComponent } from './detail-course/detail-course.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
+import { VideoComponent } from './video/video.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 
 
@@ -92,7 +94,9 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
         DashboardCoursesComponent,
         DashboardComponent,
         DetailCourseComponent,
-        HomeScreenComponent
+        HomeScreenComponent,
+        VideoComponent,
+        ViewProfileComponent
     ],
     imports: [
         BrowserModule,

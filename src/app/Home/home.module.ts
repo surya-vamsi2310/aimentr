@@ -84,6 +84,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -95,6 +96,7 @@ import { HomeComponent } from './home/home.component';
         LandingPageComponent,
         NavbarComponent,
         RegisterComponent,
+        AboutComponent,
     ],
     imports: [
         BrowserModule,

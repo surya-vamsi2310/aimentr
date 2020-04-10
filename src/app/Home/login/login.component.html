@@ -35,48 +35,46 @@
 
 
 <div class="panel-wrapper">
-  
-  <div class="feature-panel--quotes-container">
 
-      <a href="http://www.aimentr.com/" class="aimentr-logo">Aimentr</a>
+  <div class="">
 
-      <div class="feature-panel feature-panel--quotes quotes--uber">
-        <p class="sign-up__quote__excerpt">
-          “Unlimited team members.Unlimiuted projects <br>Unlimited creativity”
-          
+    <a href="http://www.aimentr.com/" class="aimentr-logo">Aimentr</a>
+
+    <div class="feature-panel feature-panel--quotes quotes--uber">
+      <p class="sign-up__quote__excerpt">
+        “Unlimited team members.Unlimiuted projects <br>Unlimited creativity”
+
       </p>
-      
-          <div class="sign-up__quote selected" data-company="uber">
-             
-              <p class="sign-up__quote__name">
-                  SINSUg 
-              </p>
-              <i class="sign-up__quote__logo sign-up__quote__logo--uber"></i>
-          </div>
-         <!-- <ul class="quotes__pagination">
+
+      <div class="sign-up__quote selected" data-company="uber">
+
+        <p class="sign-up__quote__name">
+          SINSUP
+        </p>
+        <i class="sign-up__quote__logo sign-up__quote__logo--uber"></i>
+      </div>
+      <!-- <ul class="quotes__pagination">
               <li class="pagination__page selected" data-company="uber"></li>
               <li class="pagination__page" data-company="netflix"></li>
           </ul> -->
-      </div>
+    </div>
   </div>
   <div class="main-panel">
     <div class="main-panel__table">
-        <div class="main-panel__table-cell">
-                <div class="main-panel__switch">
-                    <span class="main-panel__switch__text">Already have an account?</span>
-                    <button mat-button
-                        class="main-panel__switch__button"
-                        id="login-sign-in-button"
-                        href=" ">
-                        Sign in
-                    </button>
-                </div>
-            
+      <div class="main-panel__table-cell">
+        <div class="main-panel__switch">
+          <span class="main-panel__switch__text">Don't have an account?</span>
+          <button mat-button class="main-panel__switch__button" id="login-sign-in-button" href=" ">
+            get started
+          </button>
+        </div>
 
-            <div class="main-panel__content">
 
-                <form class="main-panel__form" style="margin-top: 10rem;">
-                    <!-- <input type="hidden" name="uploadDemoID" value="" />
+        <div class="main-panel__content">
+
+          <form class="main-panel__form"  [formGroup]="loginForm" (ngSubmit)="login()"
+            role="form" novalidate>
+            <!-- <input type="hidden" name="uploadDemoID" value="" />
                     <input type="hidden" name="source" value="signup" />
                     <input type="hidden" name="referer" value="" />
                     <input type="hidden" name="keywords" value="" />
@@ -88,72 +86,59 @@
                     <input type="hidden" name="mktgSignupFormVar" value="control" />
                     <input type="hidden" name="originUserID" value="0" />
                     <input type="hidden" name="enrichmentData" value="" /> -->
-                    
-                        <!-- <input type="hidden" name="submissionForm" value="Signup&#x20;Page" /> -->
-                    
-                    <!-- <input type="hidden" name="formToken" value="RqbKgUBN_UnnqKE0ZgxgQFXReibhY2n_WolxJHLvG6c" /> -->
-                     <h1 class="main-panel__heading nonreferral" >
-                      Sign in to Aimentr.
-                                <span class="main-panel__subheading">
-                                  Enter your details below.
-                                </span>
-                    </h1>
-                  
-                        <div class="form__page sign-up__step-one">
-                          <mat-form-field>
-                            <div class="form__group">
-                                <mat-label  for="email" class="form__label">Work Email Address</mat-label>
 
-                                <input
-                                    matInput
-                                    type="text"
-                                    class="form__input validate-empty "
-                                    name="email"
-                                    id="email"
-                                    placeholder="mentor@aimentr.com"
-                                    autofocus
-                                    value="" />
+            <!-- <input type="hidden" name="submissionForm" value="Signup&#x20;Page" /> -->
 
-                                <div class="alert alert-error alert-email">
-                                    Please enter a valid email address.
-                                </div>
-                            </div>
-                            </mat-form-field>
-                            <mat-form-field>
-                            <div class="form__group ea__prehide">
-                                <mat-label for="password"  class="form__label">Password</mat-label>
-                                <input
-                                    matInput
-                                    id="password"
-                                    type="password"
-                                    class="form__input validate-empty "
-                                    name="password"
-                                    id="password"
-                                    placeholder="5+ characters"
-                                    value="" />
+            <!-- <input type="hidden" name="formToken" value="RqbKgUBN_UnnqKE0ZgxgQFXReibhY2n_WolxJHLvG6c" /> -->
+            <h1 class="main-panel__heading nonreferral">
+              Sign in to Aimentr.
+              <span class="main-panel__subheading">
+                Enter your details below.
+              </span>
+            </h1>
+            <div class="form__page sign-up__step-one">
+              <mat-form-field>
+                <div class="form__group">
+                  <mat-label for="email" class="form__label">Work Email Address</mat-label>
 
-                                <div class="alert alert-error alert-password">
-                                    Your password must be at least 6 characters long.
-                                </div>                                   
-                            </div>
-                            </mat-form-field>
-                        </div>
+                  <input matInput type="text" class="form__input validate-empty " name="email"
+                    formControlName="username" id="email" placeholder="mentor@aimentr.com" autofocus value="" />
 
-                         <div class="textcenter">
-                                <button mat-button type="submit" class="form__button ea__prehide sign-up__submit" routerLink="/home" style="">
-                                  Sign in
-                                </button>
-                        </div>
-                            <p class="form__legal ea__prehide" style="display: none;">
-                                By clicking "<span class="sign-up__cta-text">Continue</span>" I agree to InVision's
-                                 <a href="http://www.invisionapp.com/terms_of_service" target="_blank">Terms of Service</a> and
-                                    <a href="https://www.invisionapp.com/privacy" target="_blank">Privacy Policy</a>.
-                            </p>
-               </form>
-            </div> <!-- main-panel__content -->
-        </div>
+                  <div class="alert alert-error alert-email">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+              </mat-form-field>
+              <mat-form-field>
+                <div class="form__group ea__prehide">
+                  <mat-label for="password" class="form__label">Password</mat-label>
+                  <input matInput id="password" type="password" formControlName="password"
+                    class="form__input validate-empty " name="password" id="password" placeholder="5+ characters"
+                    value="" />
+
+                  <div class="alert alert-error alert-password">
+                    Your password must be at least 6 characters long.
+                  </div>
+                </div>
+              </mat-form-field>
+            </div>
+
+            <div class="textcenter">
+              <button mat-button type="submit" class="form__button ea__prehide sign-up__submit" routerLink="/home"
+                [disabled]="!loginForm.valid">
+                Sign in
+              </button>
+            </div>
+            <p class="form__legal ea__prehide" style="display: none;">
+              By clicking "<span class="sign-up__cta-text">Continue</span>" I agree to InVision's
+              <a href="http://www.invisionapp.com/terms_of_service" target="_blank">Terms of Service</a> and
+              <a href="https://www.invisionapp.com/privacy" target="_blank">Privacy Policy</a>.
+            </p>
+          </form>
+        </div> <!-- main-panel__content -->
+      </div>
     </div>
-</div> <!-- main-panel --> 
+  </div> <!-- main-panel -->
 
 
 </div>
