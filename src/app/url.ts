@@ -23,6 +23,7 @@ export const APIURL = {
     RESEND_CONFORMATION_BY_USERNAME: baseUrl + 'resendConfirmation/:username',
     SEND_OTP: baseUrl + 'sendOtp',
     VERIFY_OTP: baseUrl + 'verifyOtp',
+    STUDENT_REGISTRATION: baseUrl + 'studentRegistration',
 
     // User Routes
     GET_USER_INFO: baseUrl + 'getUserInfo',

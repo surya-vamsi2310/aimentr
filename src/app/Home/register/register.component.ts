@@ -10,6 +10,7 @@ import {
 } from '@angular/common/http';
 import { APIURL } from '../../url'
 import { map } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 // import { MatDialogRef } from '@angular/material'
 enum roles {
@@ -38,13 +39,13 @@ export class RegisterComponent implements OnInit {
 
 
   ExtractedData = {
-    username:"",
+    username: "",
     Email: "",
     MobileNumber: null,
     Context: null,
     Company: null,
     Experience: [],
-    role:""
+    role: ""
   }
 
 
@@ -53,7 +54,8 @@ export class RegisterComponent implements OnInit {
     private CommonService: CommonService,
     private router: Router,
     private route: ActivatedRoute,
-    private EncrDecrService: EncrDecrService) { }
+    private EncrDecrService: EncrDecrService,
+    private toastr: ToastrService, ) { }
 
   ngOnInit(): void {
   }
@@ -86,13 +88,13 @@ export class RegisterComponent implements OnInit {
     formData.append("resume", files[0]);
     var url = APIURL.EXTRACT_RESUME;
     this.http.post(url, formData, { headers: {} }).subscribe(
-      (response: Data)=> {
+      (response: Data) => {
         console.log(response)
 
         var ExtractData = response.Data;
 
         this.ExtractedData = {
-          username:ExtractData.username,
+          username: ExtractData.username,
           Email: ExtractData.Email,
           MobileNumber: ExtractData.MobileNumber,
           Context: ExtractData.Context,
@@ -161,6 +163,34 @@ export class RegisterComponent implements OnInit {
 
   StudentRegistration() {
     console.log(this.UserRegistration);
+
+    var url = APIURL.STUDENT_REGISTRATION;
+    this.CommonService.postMethod(url, this.UserRegistration)
+      .subscribe((data: Data) => {
+        console.log("Data===>", data);
+        if (data.success) {
+
+          var ExtractData = data.Data;
+          var studentData = {
+            username: ExtractData.username,
+            Email: ExtractData.Email,
+            role: this.UserRegistration.role
+          };
+          console.log("studentData", studentData);
+          // profile
+          var StringifyedData = JSON.stringify(studentData);
+          var EncriptedData = this.EncrDecrService.set(StringifyedData);
+          this.toastr.success(data.message, "Success !");
+          this.router.navigate(['/verifyotp'], { queryParams: { Data: EncriptedData } })
+
+        }
+        else {
+          this.toastr.warning(data.message, "Error !");
+
+        }
+      })
+
+
   }
 
 

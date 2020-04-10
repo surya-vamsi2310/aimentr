@@ -204,13 +204,13 @@ export class MentorshipRegistrationComponent implements OnInit {
 
 
     var url = APIURL.AUTH_REGISTER_USER;
-    this.CommonService.postMethod(url, this.Payload)
+    this.CommonService.loginOrRegister(url, this.Payload)
       .subscribe((data: Data) => {
         console.log("Data===>", data);
         if (data.success) {
 
           this.toastr.success(data.msg, "Success !");
-          // this.router.navigate(['/mentorshipregistration'], { queryParams: { Data: this.userParams } })
+          this.router.navigate(['/home'])
 
         }
         else {

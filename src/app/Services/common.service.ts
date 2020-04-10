@@ -5,11 +5,12 @@ import {
   HttpEventType,
   HttpResponse, HttpHeaders
 } from '@angular/common/http';
+import { isNullOrUndefined } from 'util';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Router, ActivatedRoute, Data } from '@angular/router';
 import { Subject } from 'rxjs'
-
+import { EncrDecrService } from './encr-decr.service'
 
 
 @Injectable({
@@ -22,40 +23,90 @@ export class CommonService {
 
   constructor(private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private EncrDecrService: EncrDecrService,) { }
 
 
 
-  getHeaders(api?: string) {
+  getHeaders() {
     const options = { headers: {} };
     options.headers['Content-Type'] = 'application/json';
     options.headers['Access-Control-Allow-Origin'] = '*';
 
-    // if(this.authSrv.isLoggedIn()) {
-    //   console.log("coming here:: ",this.authSrv.getUserDetails('jwtToken'));
-    //   options.headers['Authorization'] = this.authSrv.getUserDetails('jwtToken');
-    // }
+    if (this.isLoggedIn()) {
+      console.log("coming here:: ", this.authToken );
+      options.headers['Authorization'] = this.authToken ;
+    }
     return options;
   }
 
 
-  // makePostApiCall(api: string, postData: any): Observable<any> {
-  //   return this.http.post(this.baseUrl + '' + apiStatus.api, postData, this.getHeaders(api));
-  // }
 
-  // , this.getHeaders(url)
+  loginOrRegister(url, data): Observable<Object> {
+    return this.http.post(url, data, this.getHeaders()).pipe(
+      map((response: Data) => {
+        console.log(response);
+        if(response.token){
+          localStorage.setItem('jwtToken', response.token);
+          var encriptedUserInfo = JSON.stringify(response.user);
+          localStorage.setItem('userInfo',this.EncrDecrService.set(encriptedUserInfo));
+  
+        }
+        return response
+
+      })
+    );
+  }
+
+ 
+  isLoggedIn() {
+    this.loadToken()
+    return !!localStorage.getItem('userInfo');
+  }
+
+  loadToken() {
+    const token = localStorage.getItem('jwtToken');
+    this.authToken = token;
+  }
+
+
+  getUserDetails(prop) {
+    // if (this.isLoggedIn() && !isNullOrUndefined(localStorage.getItem('userInfo')) && localStorage.getItem('userInfo') != 'undefined') {
+    //   // const userDetails = JSON.parse(this.cookieSrv.get('userInfo'));
+    //   const userDetails =   JSON.parse( this.EncrDecrService.get(localStorage.getItem('userInfo')) );
+    //   if (prop === 'all') {
+    //     return userDetails;
+    //   } else {
+    //     return !isNullOrUndefined(userDetails[prop]) ? userDetails[prop] : null;
+    //   }
+    // } else {
+    //   return null;
+    // }
+  }
+
+
   postMethod(url, data): Observable<Object> {
-    return this.http.post(url, data , this.getHeaders(url)).pipe(
+    return this.http.post(url, data, this.getHeaders()).pipe(
       map((response: Data) => {
         return response
       })
     );
   }
 
+  getMethod(url): Observable<Object> {
+    return this.http.get(url , this.getHeaders()).pipe(map(response => {
+      return response
+    }))
+  }
 
 
 
-
+  logout() {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('userInfo');
+    this.router.navigate(['/']);
+    
+  }
 
 
   // createAuthorizationHeader(): HttpHeaders {
@@ -64,10 +115,7 @@ export class CommonService {
   //   return headers;
   // }
 
-  // loadToken() {
-  //   const token = localStorage.getItem('token');
-  //   this.authToken = token;
-  // }
+  
 
 
 

@@ -20,19 +20,13 @@
                                 <ng-template matStepLabel><b> Personal :</b></ng-template>
                                 <div class="row mx-5 my-4">
                                     <div class="col-md-12">
-                                        <!-- <div class="md-form">
-                                            <mdb-icon fas icon="envelope" class="purple-text prefix"></mdb-icon>
-                                            <input mdbInput mdbValidate type="text" id="form2" class="form-control"
-                                            class="form-control" #FirstName="ngModel"   [(ngModel)]="UserDetails.FirstName" required>
-                                            <label for="form2">Example label</label>
-                                          </div> -->
                                         <form #Personal="ngForm" novalidate>
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="md-form form-sm">
                                                         <input mdbInput mdbValidate name="mail"
                                                             [(ngModel)]="Payload.personal.mail" type="text" id="mail"
-                                                            class="form-control" #mail="ngModel" required>
+                                                            class="form-control" #mail="ngModel" required readonly>
                                                         <label for="mail">Mail</label>
                                                     </div>
                                                 </div>
@@ -59,7 +53,7 @@
                                                     <div class="md-form form-sm">
                                                         <input mdbInput mdbValidate name="mobile"
                                                             [(ngModel)]="Payload.personal.mobile" type="number"
-                                                            id="mobile" class="form-control" #mobile="ngModel" required>
+                                                            id="mobile" class="form-control" #mobile="ngModel" minlength="10" maxlength="10" required readonly>
                                                         <label for="mobile">Mobile Number</label>
                                                     </div>
                                                 </div>
