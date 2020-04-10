@@ -2,9 +2,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardCoursesComponent } from './dashboard-courses/dashboard-courses.component';
 import { DetailCourseComponent } from './detail-course/detail-course.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
-import { Component } from '@angular/core';
+import { CreateCourseComponent } from './create-course/create-course.component';
 import { VideoComponent } from './video/video.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+
 
 export const Routes = [
     
@@ -28,8 +29,13 @@ export const Routes = [
                 path:'video',component:VideoComponent
             },
             {
-                path:'profile',component:ViewProfileComponent
-            }
+                path: "courseupload",
+                component: CreateCourseComponent
+            },
+            {
+                path: "profile",
+                component: ViewProfileComponent
+            },
         ]
     
     },

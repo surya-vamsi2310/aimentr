@@ -84,7 +84,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { TranslationComponent } from './translation/translation.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { MentorshipRegistrationComponent } from './mentorship-registration/mentorship-registration.component';
+import { OtpVerifycationComponent } from './otp-verifycation/otp-verifycation.component';
 
 
 
@@ -96,7 +99,10 @@ import { AboutComponent } from './about/about.component';
         LandingPageComponent,
         NavbarComponent,
         RegisterComponent,
-        AboutComponent,
+        TranslationComponent,
+        StudentProfileComponent,
+        MentorshipRegistrationComponent,
+        OtpVerifycationComponent,
     ],
     imports: [
         BrowserModule,

@@ -1,17 +1,24 @@
 .mat-stepper-horizontal {
-    margin-top: 8px;
-  }
-  
-  .mat-form-field {
-    margin-top: 16px;
-    // margin-top: 26px;
-  }
+  margin-top: 8px;
+}
 
-  .matFieldsAlign{
-    margin-top: 26px;
+.mat-form-field {
+  margin-top: 16px;
+  // margin-top: 26px;
+}
+
+.matFieldsAlign {
+  margin-top: 26px;
+}
+
+.StudentStepper {
+  .mat-horizontal-stepper-header-container {
+    white-space: nowrap;
+    display: flex;
+    width: 40% !important;
+    align-items: center;
   }
-
-
+}
 
 // .mat-stepper-horizontal {
 //     margin-top: 18px;
@@ -84,7 +91,7 @@
 //     .text-content{
 //         text-align:left;
 //         margin-left: 0px;
-        
+
 //     }
 // }
 // @media screen and (max-width: 720px){
@@ -109,7 +116,7 @@
 // ::ng-deep .mat-horizontal-stepper-header .mat-step-label{
 //     text-align: start;
 // }
-    
+
 // // .stepper {
 // //     width: 100%;
 // //     margin-left: 20%;
@@ -122,10 +129,9 @@
 // //     margin-left: 20%;
 // // }
 
-
 // // }
 // // ::ng-deep .mat-step-header .mat-step-label.mat-step-label{
-  
+
 // //     margin-bottom: auto;
 // //     overflow: visible;
 
@@ -176,16 +182,16 @@
 //     //     border-top-color: red !important;
 //     //     background-color: yellow !important;
 //     //  }
-// //    ::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::before, [dir=rtl] .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::before { 
+// //    ::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::before, [dir=rtl] .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::before {
 // //         border-top-width: 4px;
 // //         border-top-color: blue;
 // //       }
-      
+
 // //       ::ng-deep  .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::after, [dir=rtl] .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::after {
 // //         border-top-width: 4px;
 // //         border-top-color: blue;
 // //       }
-      
+
 // //       ::ng-deep  .mat-stepper-horizontal-line {
 // //         border-top-width: 4px;
 // //         border-top-color:red;
@@ -216,7 +222,7 @@
 //         margin-left: 40px;
 //         font: {
 //             size: 1rem;
-            
+
 //         };
 //     }
 //     @media screen and (max-width: 720px){
@@ -258,7 +264,7 @@
 //     -webkit-box-flex: 0;
 //     flex: 0 0 75%;
 //     max-width: 75%;
-    
+
 // }
 // .row {
 //     display: -webkit-box;
@@ -271,7 +277,7 @@
 //     display: block;
 //     width: 100%;
 //     // height: calc(2.75rem + 2px);
- 
+
 //     line-height: 1.5;
 //     color: #8898aa;
 //     background-color: #fff;
@@ -287,7 +293,7 @@
 //     display: block;
 //     width: 100%;
 //     // height: calc(2.75rem + 2px);
-   
+
 //     line-height: 1.5;
 //     color: #8898aa;
 //     background-color: #fff;
@@ -312,7 +318,7 @@
 //     margin-right: 100px;
 // }
 // .last{
-   
+
 //     margin-right: 0px;
 //     padding-left: 32px;
 // }
