@@ -1,6 +1,6 @@
 // var baseUrl = "http://localhost:8080/";
-var baseUrl = "http://localhost:5000/";
-// var baseUrl = "";
+// var baseUrl = "http://localhost:5000/";
+var baseUrl = "https://aimentruiserver.herokuapp.com/";
 
 
 export const APIURL = {
