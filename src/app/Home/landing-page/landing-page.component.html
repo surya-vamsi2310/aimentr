@@ -1,168 +1,241 @@
 <div class="landing">
-   <div class="bak-gr pt-3">
+   <div class="bak-gr py-5">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="container">
+               <img src="/assets/fevicon.png" width="50px">
+               <button type="button" class="float-right" mdbBtn color="dark" rounded="true" routerLink="/register"
+                  mdbWavesEffect>Register</button>
+               <button type="button" class="float-right" mdbBtn color="white" rounded="true" routerLink="/login"
+                  mdbWavesEffect>Login</button>
+            </div>
+         </div>
+      </div>
+      <div class="container-fluid heading py-5">
+         <div class="row justify-content-center">
+            <div class="col-md-10">
+               <div class="row py-5">
+                  <div class="col-md-12 py-3">
+                     <h1 class="line-height">Welcome to <br>
+                        Social Learning <br>
+                        Network</h1>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="input-group">
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                        <div class="input-group-append">
+                           <div class="btn-group" mdbDropdown>
+                              <button type="button" mdbBtn color="white" outline="true" size="md" class="z-depth-0"
+                                 mdbWavesEffect>Action</button>
+                              <button type="button" mdbDropdownToggle mdbBtn color="white" outline="true"
+                                 class="dropdown-toggle dropdown-toggle-split z-depth-0 p-2" mdbWavesEffect></button>
+                              <div class="dropdown-menu">
+                                 <a class="dropdown-item" href="#">Action</a>
+                                 <a class="dropdown-item" href="#">Another action</a>
+                                 <a class="dropdown-item" href="#">Something else here</a>
+                                 <div class="divider dropdown-divider"></div>
+                                 <a class="dropdown-item" href="#">Separated link</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid py-5">
+      <div class="row justify-content-center">
+         <div class="col-md-10">
+            <mdb-card class="secondsection px-3" data-toggle="modal">
+               <mdb-card-body class="courseCardsBody ">
+                  <header class="section-head">
+                     <div class="row">
+                        <div class="col-md-12">
+                           <h1 class="section-title text-center">
+                              AImentr is Community of Students with you in its Centre
+                           </h1>
+                        </div>
+                        <div class="col-md-12">
+                           <h1 class="section-title text-center">
+                              Find Best mentors to Enhance the Career and Gain privilage in Community.
+                           </h1>
+                        </div>
+                        <div class="col-md-12">
+                           <div class="section-head-actions">
+                              Canadian Business Conference, organized by CBC Canada, will take place in Montréal, Canada
+                              on
+                              October
+                              8-11th 2017 and will be coordinated by Joe Doe (WPlook Studio inc). We invite you to join
+                              us at
+                              the
+                              event
+                              in Montréal and would like to emphasize that proposals from different parts of the world
+                              are
+                              welcomed. We
+                              sincerely hope to see you there!
+                           </div>
+                        </div>
+                     </div>
+                  </header>
+                  <div class="row py-4">
+                     <div class="col-sm-4">
+                        <img src="/assets/intelligent.png" width="50px"><br>
+                        <h4 class="py-0 my-0"><b>Intelligent </b></h4>
+                        <h4 class="py-0 my-0"><b> Recommandations </b></h4>
+                        <p class="my-0">Will help you to get better search results,
+                        </p>
+                        <p> depending of your requirement and you skills
+                        </p>
+                     </div>
+                     <div class="col-sm-4 ">
+                        <img src="/assets/machine_translation.png" width="50px"><br>
+                        <h4 class="my-0"><b>Machine</b></h4>
+                        <h4 class="my-0"><b>Translation</b></h4>
+                        <p>We feel language should'nt be a barrier of knowledge,so we built language friendly platform
+                           which supports learners to get skilled in own nativity.
+                        </p>
+                     </div>
+                     <div class="col-sm-4 ">
+                        <img src="/assets/braini.png" width="50px"><br>
+                        <h4 class="my-0"><b>Intelligent</b></h4>
+                        <h4 class="my-0"> <b>Recommandations</b></h4>
+                        <p>The Sinsu helps learners as virtual assistance in getting skill recomendations, jobs, and
+                           Projects
+                        </p>
+                     </div>
+                  </div>
+               </mdb-card-body>
+            </mdb-card>
+         </div>
+      </div>
+      <div class="row  justify-content-center">
+         <div class="col-md-10">
+            <div class="row py-5">
+               <div class="col-md-5 py-5">
+                  <h2>Find Your Perfect Mentor</h2>
+                  <h2>For right skill</h2>
+               </div>
+               <div class="col-md-4 py-5">
+                  <mat-chip-list aria-label="Fish selection">
+                     <mat-chip>Artificial Intelligence</mat-chip>
+                     <mat-chip>Mean stack</mat-chip><br><br>
+                     <mat-chip>Phyton Programming</mat-chip>
+                     <mat-chip>Business Intelligence</mat-chip>
+                     <mat-chip>Web develope ment</mat-chip><br><br>
+                     <mat-chip>NodeJs</mat-chip>
+                     <mat-chip>Business Intelligence</mat-chip>
+                  </mat-chip-list>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid world py-5 justify-content-center">
+      <div class="row py-5 justify-content-center">
+         <div class="col-md-10 ">
+            <div class="row ">
+               <div class="col-md-8">
+                  <h2>Post a Course</h2>
+                  <h2>Let Million of people see</h2>
+               </div>
+               <div class="col-md-3">
+                  <button mat-raised-button color="warn">post your course</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid py-5">
+      <div class="row justify-content-center">
+         <div class="col-md-10">
+            <div class="row py-5">
+               <div class="col-sm-5 col-md-6 col-lg-4">
+                  <h2>Connect to world community</h2>
+                  <h2>Students &Learners</h2>
+                  <h2>Get collaborated learn with</h2>
+                  <h2>Realtime Project & Real</h2>
+                  <h2>Collaborations</h2>
+               </div>
+               <div class="col-sm-7 col-md-5 col-lg-8">
+                  <img src="/assets/Layer2.png" class="img-fluid">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid noel py-5">
+      <div class="row justify-content-center ">
+         <div class="col-md-10">
+            <div class="row">
+               <div class="col-md-6 py-5">
+                  <h2>Kavya </h2>
+                  <p>Student of Western Illinois University</p>
+                  <h3 class="my-0"><b>
+                        "Learnt Data Science From one of the best mentor of</b></h3>
+                  <h3><b> this platform with best Education technology
+                        assets provided."</b></h3>
+                  <p> <b>I Ended Up Getting the job</b></p>
+               </div>
+               <div class="col-md-6 text-center">
+                  <img class=" img-fluid text-center rounded-circle" src="/assets/student.jpg" width="300px"
+                     style="height:320px">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid bottom py-5">
       <div class="col-12">
-         <div class="btn">
-            <button mat-raised-button routerLink="/login">Log in</button>
-            <button class="butt" mat-button routerLink="/register">Register</button></div>
-         
-         <div class="w-25 text-center">
-         <img src="/assets/logo_full.png" width="180px" >
-         </div>
-         
-      </div>
-      <div class="container no-gutters ">
-         <div class="col-12">
-            <h1>Welcome to </h1>
-            <h1>Social Learning Network</h1>
-            <p class="text">
-               Lorem ipsum is simply dummy text of the printing and typesetting industry.
-            </p>
-            <button mat-raised-button color="warn">Get started<mat-icon>arrow_forward
-               </mat-icon>
-            </button>
-         </div>
-      </div>
-   </div>
-   <div class="container-card">
-      <div class="row no-gutters">
-         <header class="section-head">
-            <h1 class="section-title text-center">
-   Welcome To The Event<br> That Will Transform The Way You Do Business.
-            </h1>
-
-            <div class="section-head-actions text-center">
-               Canadian Business Conference, organized by CBC Canada, will take place in Montréal, Canada on October 8-11th 2017 and will be coordinated by Joe Doe (WPlook Studio inc). We invite you to join us at the event in Montréal and would like to emphasize that proposals from different parts of the world are welcomed. We sincerely hope to see you there!
-            </div><!-- /.section-head-actions -->
-         </header>
-         <div class="col-sm-4">
-            <img src="/assets/intelligent.png" width="50px"><br>
-            <h4>Intelligent</h4>
-            <h4> Recommandations</h4>
-            <p><strong>Lorem ipsum</strong> is simply dummy text of the printing
-               and typesetting industry.Lorem ipsum has been the industry's standard
-               dummy text ever since the 1500s.
-            </p>
-         </div>
-         <div class="col-sm-4">
-            <img src="/assets/machine_translation.png" width="50px"><br>
-            <h4>Machine</h4>
-            <h4>Translation</h4>
-            <p><strong>Lorem ipsum</strong> is simply dummy text of the printing
-               and typesetting industry.Lorem ipsum has been the industry's standard
-               dummy text ever since the 1500s.
-            </p>
-         </div>
-         <div class="col-sm-4">
-            <img src="/assets/braini.png" width="50px"><br>
-            <h4>Intelligent</h4>
-            <h4> Recommandations</h4>
-            <p><strong>Lorem ipsum</strong> is simply dummy text of the printing
-               and typesetting industry.Lorem ipsum has been the industry's standard
-               dummy text ever since the 1500s.
-            </p>
-         </div>
-      </div>
-
-   </div>
-   <div class="container-chips">
-      <div class="row no-gutters">
-         <div class="col-sm-5">
-            <h2>Find Your Perfect Mentor</h2>
-            <h2>For right skill</h2>
-         </div>
-         <div class="col-sm-4">
-            <mat-chip-list aria-label="Fish selection">
-               <mat-chip>Artificial Intelligence</mat-chip>
-               <mat-chip>Mean stack</mat-chip><br><br>
-               <mat-chip>Phyton Programming</mat-chip>
-               <mat-chip>Business Intelligence</mat-chip>
-               <mat-chip>Web develope ment</mat-chip><br><br>
-               <mat-chip>NodeJs</mat-chip>
-               <mat-chip>Business Intelligence</mat-chip>
-            </mat-chip-list>
+         <div class="row">
+            <div class="col-3">
+               <img src="/assets/logo_full.png" class="img-fluid" width="200px">
+            </div>
+            <div class="col-12 text-white py-5">
+               <div class="list">
+                  <div class="row">
+                     <div class="col-4">
+                        <ul style="list-style-type:none;">
+                           <h3>circles</h3>
+                           <li>Academy</li>
+                           <li>Capital</li>
+                           <li>Careers</li>
+                           <li>Design</li>
+                           <li>Diligence</li>
+                           <li>Labs</li>
+                           <li>Social Impact</li>
+                           <li>Solutions</li>
+                        </ul>
+                     </div>
+                     <div class="col-4">
+                        <ul style="list-style-type:none">
+                           <h3>Company</h3>
+                           <li>About</li>
+                           <li>Open Roles</li>
+                           <li>Contact</li>
+                           <li>Press</li>
+                           <li>Ethereal</li>
+                           <li>Media</li>
+                           <li>The Brooklyn Project</li>
+                           <li>Privacy Policy</li>
+                           <li>Terms Of Use</li>
+                        </ul>
+                     </div>
+                     <div class="col-4">
+                        <ul style="list-style-type:none">
+                           <h3>Social</h3>
+                           <li>Twitter</li>
+                           <li>LinkedIn</li>
+                           <li>Facebook</li>
+                           <li>Instagram</li>
+                           <li>YouTube</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
    </div>
-   <div class="container-world">
-      <div class="row no-gutters">
-         <div class="col-sm-8">
-            <h2>Post your Course and Let world</h2>
-            <h2>Learn a skill Becoming a Mentor</h2>
-         </div>
-         <div class="col-sm-3">
-            <button mat-raised-button color="warn">post your course</button>
-         </div>
-      </div>
-   </div>
-
-   <div class="container-connect">
-      <div class="row no-gutters">
-         <div class="col-sm-5 col-md-6 col-lg-4">
-            <h2>Connect to world community</h2>
-            <h2>Students &Learners</h2>
-            <h2>Get collaborated learn with</h2>
-            <h2>Realtime Project & Real</h2>
-            <h2>Collaborations</h2>
-         </div>
-         <div class="col-sm-7 col-md-5 col-lg-8">
-            <img   src="/assets/Layer2.png">
-      </div>
-      </div>
-   </div>
-   <div class="container-noel">
-      <div class="row no-gutters">
-         <div class="col-sm-6 col-md-6 col-lg-6">
-            <h1>Noel got out of unemployment </h1>
-            <h2>
-               "I was having a very hard time finding a job.
-               a supervisor reached out to me om LinkedIn.we set up an interview and form their
-               I was hired.LinkedIn was the matchmaker"</h2>
-            <p>Noel DebowVisual</p>
-            <p>I ended up Getting the job</p>
-         </div>
-         <div class="col-sm-6 col-md-5 col-lg-5">
-            <img class="student" src="/assets/student.jpg">
-         </div>
-      </div>
-   </div>
-  <div class="container-bottom">
-     <div class="col-sm-8">
-     <div class="row no-gutters">
-      <img src="/assets/logo_full.png">
-      <div class="list">
-         <ul style="list-style-type:none;">
-            <h3>circles</h3>
-            <li>Academy</li>
-            <li>Capital</li>
-            <li>Careers</li>
-            <li>Design</li>
-            <li>Diligence</li>
-            <li>Labs</li>
-            <li>Social Impact</li>
-            <li>Solutions</li>
-         </ul>
-         <ul style="list-style-type:none">
-            <h3>Company</h3>
-            <li>About</li>
-            <li>Open Roles</li>
-            <li>Contact</li>
-            <li>Press</li>
-            <li>Ethereal</li>
-            <li>Media</li>
-            <li>The Brooklyn Project</li>
-            <li>Privacy Policy</li>
-            <li>Terms Of Use</li>
-         </ul>
-         <ul style="list-style-type:none">
-            <h3>Social</h3>
-            <li>Twitter</li>
-            <li>LinkedIn</li>
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>YouTube</li>
-         </ul>
-      </div>
-     </div>
-  </div>
-</div>  
-</div>

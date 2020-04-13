@@ -26,7 +26,7 @@
 
 .aimentr-logo{
     display:block;
-    position:absolute;
+    position:fixed;
     z-index:1;
     top:38px;
     left:5%;
@@ -54,18 +54,6 @@
     padding:0 40px;
     display:none
 }
-// .aimentr-logo-inversed{
-//     display:block;
-//     position:absolute;
-//     z-index:1;top:38px;
-//     width:50px;
-//     height:50px;
-//     background:url(../../assets/IMG-20200318-WA0000.jpg);
-//     background-repeat:no-repeat;
-//     background-size:100%;
-//     color:transparent;
-//     font-size:1px
-// }
 
 .feature-panel{
     display:none;
@@ -121,32 +109,6 @@
         color:#fff;
         letter-spacing:.91px;
     }
-    // .aimentr-logo{
-    //     display:block;
-    //     position:absolute;
-    //     z-index:1;
-    //     top:38px;
-    //     left:5%;
-    //     width:50px;
-    //     height:50px;
-    //     background:url(../../assets/fevicon.png);
-    //     background-size:100%;
-    //     color:transparent;
-    //     font-size:1px;
-    // }
-    // @media (min-width:600px){
-    //     .aimentr-logo{
-    //         left:38px
-    //     }
-    // }
-    // @media (min-width:1076px){
-    //     .aimentr-logo{
-    //         // background-image:url(../img/login-signup/aimentr-logo-white.png)
-    //     }
-    //     .aimentr-logo--single{
-    //         // background-image:url(../img/login-signup/aimentr-logo-gray.png)
-    //     }
-    // }
     
     .feature-panel--quotes{
         background-size:cover;
@@ -160,16 +122,16 @@
         left:0;
         width:100%;
         height:480px;
-        background-image:-webkit-linear-gradient(91deg,#141516 7%,rgba(43,51,65,0) 100%);
-        background-image:-o-linear-gradient(91deg,#141516 7%,rgba(43,51,65,0) 100%);
-        background-image:linear-gradient(-1deg,#141516 7%,rgba(43,51,65,0) 100%);
+        // background-image:-webkit-linear-gradient(91deg,#141516 7%,rgba(43,51,65,0) 100%);
+        // background-image:-o-linear-gradient(91deg,#141516 7%,rgba(43,51,65,0) 100%);
+        // background-image:linear-gradient(-1deg,#141516 7%,rgba(43,51,65,0) 100%);
     }
     .quotes--uber{
-        background-image:Url('./assets/login.jpg');
+        background-image:Url('./assets/images/home/pics.gif');
     }
     @media only screen and (min-device-pixel-ratio:2),only screen and (-webkit-min-device-pixel-ratio:2),only screen and (-o-min-device-pixel-ratio:2/1),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){
         .quotes--uber{
-            background-image:Url('./assets/login.jpg');
+            background-image:Url('./assets/images/home/pics.gif');
         }
     }
     .sign-up__quote{

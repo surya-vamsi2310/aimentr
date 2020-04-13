@@ -1,358 +1,41 @@
-.landing {
-    background-color: #f0f4f7;
+ .landing {
+     background-color: #f0f4f7;
+     font-family: Roboto;
 
 }
 
 .bak-gr {
-    background-image:linear-gradient( rgba(119, 159, 170, 0.63), rgba(96, 122, 122, 0.5)),
-    url(/assets/landing.jpg);
+    background-image:Url('./assets/Artboard.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    position: center;
     padding-bottom: 20%;
     
+ }
+ .noel{
+     background-color: white;
+ }
+
+
+ .heading h1 {
+     font-weight:bolder;
+    
+     color:white;
+     font-size:  -webkit-xxx-large;
+     
+ }
+
+
+ .world {
+   background-color: #e2ddd7;
+       color: black;
+ }
+
+.secondsection{
+    margin-top: -150px;
 }
 
-.btn .mat-raised-button {
-    background-color: teal;
-    padding: 0px 20px;
-    color: white;
-}
 
-.container {
-    margin-left: 9%;
-    padding-top: 10%;
-    background-size: cover;
-}
-
-.container h1 {
-    font-weight: normal;
-    font-size: xx-large;
-    padding: 0;
-}
-
-.container p {
-    padding-top: 5px;
-}
-
-.container-card {
-    background-color: white;
-    color: black;
-    width: 80%;
-    padding: 50px 60px 70px 100px;
-    border-radius: 5px;
-    margin-bottom: -15%;
-    margin-top: -15%;
-    margin-left: 10%;
-    font-weight: normal;
-}
-
-.container-card h1 {
-    font-weight: normal;
-}
-
-.container-card h4 {
-    margin: 0;
-    font-size: initial;
-}
-
-.container-card img {
-    margin-top: 25px;
-    display: block;
-    margin-left: 0;
-}
-
-.container-chips {
-    padding-top: 20%;
-    padding-bottom: 15%;
-    margin-left: 10%;
-    font-size: x-large;
-}
-
-.container-chips h2 {
-    font-size: x-large;
-    color: black;
-    font-weight: normal;
-}
-
-.container-world {
-    background-color: #e2ddd7;
-    color: black;
-    margin: 0px;
-    padding: 10% 3%;
-}
-
-.container-world h2 {
-    margin-left: 10%;
-    font-size: x-large;
-    color: black;
-    padding-bottom: 0;
-    margin-top: 0;
-    font-weight: normal;
-}
-
-.container-connect {
-    padding: 10% 0% 10% 10%;
-}
-
-.container-connect h2 {
-    font-size: x-large;
-    font-weight: normal;
-}
-
-.container-noel {
-    background-color: white;
-    padding: 5% 0px;
-}
-
-.container-noel h1 {
-    color: teal;
-    margin-left: 10%;
-    font-size: x-large;
-    margin-left: 20%;
-}
-
-.container-noel h2 {
-    margin-left: 20%;
-    font-weight: 100;
-}
-
-.container-noel p {
-    margin-left: 20%;
-}
-
-.container-noel img {
-    height: auto;
-    float: none;
-    width: inherit;
-    border-radius: 50%;
-}
-
-.container-bottom {
+.bottom{
     background-color: black;
-    padding: 5% 0;
-}
-
-.container-bottom img {
-    width: 15%;
-    height: 10%;
-    margin-left: 10%;
-}
-
-.btn {
-    float: right;
-    color: white;
-    border-radius: 5px;
-    margin-right: 5%;
-}
-
-.butt {
-    margin-left: 10px;
-    background-color: none;
-}
-
-.text {
-    font-size: 20px;
-    color: lightgrey;
-    padding: 30px 0px;
-}
-
-.get-btn {
-    background-color: #003151;
-    border-radius: 25px;
-    padding: 0 15px;
-}
-
-.container-connect img {
-    width: -webkit-fill-available;
-    height: auto;
-    float: right;
-}
-
-.list {
-    display: inline-flex;
-    float: right;
-    margin-left: 33%;
-    list-style-type: none
-}
-
-ul {
-    color: lightslategray;
-    margin-top: 0;
-    margin-left: 30px;
-}
-
-@media only screen and (max-width: 600px) {
-    * {
-        margin: 0;
-        overflow: hidden;
-    }
-
-    .container {
-        padding: 0;
-        margin-left: 2%;
-    }
-
-    .container h1,
-    p {
-        padding: 0;
-        margin: 0;
-    }
-
-    .container-chips h2 {
-        padding: 0;
-    }
-
-    .container-world h1 {
-        margin: 0;
-        padding: 0;
-    }
-
-    .container-connect {
-        margin: 0;
-    }
-
-    .container-card {
-        padding: 2% 4%;
-        margin-left: 10%;
-    }
-
-    .container-card h1 {
-        margin: 0;
-    }
-
-    .section-head-actions {
-        text-align: left;
-    }
-
-    .container-world .mat-raised-button {
-        margin-left: 10%;
-    }
-
-    .container-bottom {
-        margin: 0;
-
-    }
-
-    .container-noel {
-        padding: 2%;
-    }
-
-    .container-noel h1,
-    h2,
-    p {
-        margin: 0;
-        padding: 0;
-    }
-
-    .container-bottom img {
-        margin: 0;
-        padding: 3%;
-    }
-
-    ul {
-        margin: 0;
-    }
-
-    .list {
-        margin: 0;
-        padding: 3px;
-    }
-}
-
-@media only screen and (max-width: 768px)and (max-width: 1400px) {
-    * {
-        margin: 0;
-
-        overflow: hidden;
-    }
-
-    .container h1 {
-        padding: 3px;
-        margin: 0;
-    }
-
-    .text {
-        padding-bottom: 10px;
-    }
-
-    .btn {
-        margin-right: 0;
-    }
-
-    .mat-raised-button {
-        padding: 0 2px;
-    }
-
-    .container-card h1 {
-        font-size: large;
-    }
-
-    .container-world h1 {
-        margin: 0;
-        padding: 0;
-    }
-
-    .container-connect {
-        margin: 0;
-    }
-
-    .container-card {
-        padding: 2% 2%;
-        margin-left: 10%;
-    }
-
-    .container-card h1 {
-        margin: 0;
-    }
-
-    .section-head-actions {
-        text-align: left;
-    }
-
-    .container-world .mat-raised-button {
-        margin-left: 10%;
-    }
-
-    .container-bottom {
-        margin: 0;
-
-    }
-
-    .container-bottom li {
-        margin: 0;
-    }
-
-    .container-noel {
-        padding: 2%;
-    }
-
-    .container-noel h1 {
-        margin: 0;
-        padding: 0;
-        font-size: x-large;
-    }
-
-    .container-noel h2 {
-        margin: 0;
-    }
-
-    .container-noel p {
-        margin: 5px 0 0 0;
-        font-size: inherit;
-    }
-
-    .container-bottom img {
-        margin: 0;
-        padding: 3%;
-    }
-
-    ul {
-        margin: 0;
-    }
-
-    .list {
-        margin: 0;
-        padding: 3px;
-    }
-
 }

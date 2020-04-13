@@ -4,7 +4,7 @@
     img {
         background-repeat: no-repeat;
         background-size: cover;
-        position: relative;
+        position:center;
     }
 }
 
@@ -143,13 +143,13 @@ margin-top: 10rem;
     left: 0;
     width: 100%;
     height: 480px;
-    background-image: -webkit-linear-gradient(91deg, #141516 7%, rgba(43, 51, 65, 0) 100%);
-    background-image: -o-linear-gradient(91deg, #141516 7%, rgba(43, 51, 65, 0) 100%);
-    background-image: linear-gradient(-1deg, #141516 7%, rgba(43, 51, 65, 0) 100%);
+    // background-image: -webkit-linear-gradient(91deg, #141516 7%, rgba(43, 51, 65, 0) 100%);
+    // background-image: -o-linear-gradient(91deg, #141516 7%, rgba(43, 51, 65, 0) 100%);
+    // background-image: linear-gradient(-1deg, #141516 7%, rgba(43, 51, 65, 0) 100%);
 }
 
 .quotes--uber {
-    background-image: Url('./assets/pic.jpg');
+    background-image: Url('./assets/images/home/login.png');
 }
 
 @media only screen and (min-device-pixel-ratio: 2),
@@ -158,7 +158,7 @@ only screen and (-o-min-device-pixel-ratio: 2/1),
 only screen and (min-resolution: 192dpi),
 only screen and (min-resolution: 2dppx) {
     .quotes--uber {
-        background-image: Url('./assets/pic.jpg');
+        background-image: Url('./assets/images/home/login.PNG');
     }
 }
 

@@ -5,6 +5,8 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { VideoComponent } from './video/video.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { StudentComponent } from './student/student.component';
+import { CoursesComponent } from './courses/courses.component';
 
 
 export const Routes = [
@@ -36,6 +38,14 @@ export const Routes = [
                 path: "profile",
                 component: ViewProfileComponent
             },
+            {
+                path: "student",
+                component: StudentComponent
+            },
+            {
+                path: "courses",
+                component: CoursesComponent
+            }
         ]
     
     },
