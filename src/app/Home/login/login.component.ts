@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { CommonService } from '../../Services/common.service';
+import { Router, NavigationExtras, ActivatedRoute, Data } from '@angular/router';
+import { EncrDecrService } from '../../Services/encr-decr.service'
+import { APIURL } from '../../url';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +15,46 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 export class LoginComponent implements OnInit {
  url: string = 'http://localhost:3000/';
  loginForm: FormGroup;
-  constructor(private http: HttpClient,private formBuilder: FormBuilder,) { }
+
+
+
+  constructor(private formBuilder: FormBuilder,
+    private CommonService: CommonService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private EncrDecrService: EncrDecrService,
+    private toastr: ToastrService,) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
       // remember: ['']
     });
   }
   
-  login() {
+
+  login(){
+    console.log(this.loginForm.value);
+
+    var url = APIURL.AUTH_LOGIN_USER;
+    this.CommonService.loginOrRegister(url, this.loginForm.value)
+      .subscribe((data: Data) => {
+        console.log("Data===>", data);
+        if (data.success) {
+ 
+          this.toastr.success("Login Successfully!", "Success !");
+          this.router.navigate(['/home'])
+
+        }
+        else {
+          this.toastr.warning(data.msg, "Error !");
+        }
+      })
+  }
+
+
+  // login() {
   //   this.isSubmitted = true;
   //   if (this.loginForm.invalid) {
   //     return;
@@ -76,5 +110,5 @@ export class LoginComponent implements OnInit {
   // resetFormFields() {
   //   this.loginForm.reset();
   // }
-}
+// }
 } 

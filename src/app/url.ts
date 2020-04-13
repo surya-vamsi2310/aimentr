@@ -1,14 +1,12 @@
 // var baseUrl = "http://localhost:8080/";
-var baseUrl = "http://localhost:5000/";
-// var baseUrl = "";
+var baseUrl = "http://localhost:5001/";
+// var baseUrl = "https://aimentruiserver.herokuapp.com/";
 
 
 export const APIURL = {
 
     REGISTER_WITH_RESUME: baseUrl + "api/upload",
     GET_AUDIO_TO_TEXT: baseUrl + "api/getAudioToText",
-
-
 
 
 
@@ -23,6 +21,7 @@ export const APIURL = {
     RESEND_CONFORMATION_BY_USERNAME: baseUrl + 'resendConfirmation/:username',
     SEND_OTP: baseUrl + 'sendOtp',
     VERIFY_OTP: baseUrl + 'verifyOtp',
+    STUDENT_REGISTRATION: baseUrl + 'studentRegistration',
 
     // User Routes
     GET_USER_INFO: baseUrl + 'getUserInfo',
@@ -31,6 +30,26 @@ export const APIURL = {
     GET_USERS_BY_QUERY: baseUrl + 'queryUsers',
 
 
+
+    //Course 
+    ADD_COURSE: baseUrl + 'addCourse',
+    GET_ALL_COURSES_OF_MENTOR: baseUrl + 'getAllCoursesOfMentor',
+    UPDATE_COURSE: baseUrl + 'updateCourse',
+    DELETE_COURSE: baseUrl + 'deleteCourse',
+
+    //topics and subtopics of course
+
+    ADD_TOPICS_OF_COURSE: baseUrl + 'AddTopicOfCourse',
+    GET_TOPICS_OF_COURSE: baseUrl + 'getTopicsOfCourse',
+    UPDATE_TOPIC_NAMES_NAMES_OF_COURSE: baseUrl + 'updateTopicNames',
+    DELETE_TOPICS_NAMES_OF_COURSE: baseUrl + 'deleteTopicNames',
+
+    ADD_SUB_TOPICS_OF_COURSE: baseUrl + 'AddSubTopicOfCourse',
+    GET_SUB_TOPICS_OF_COURSE: baseUrl + 'getSubtopicsOfCourse',
+    UPDATE_SUB_TOPIC_NAMES_OF_COURSE: baseUrl + 'updateSubTopicNames',
+    DELETE_SUB_TOPIC_NAMES_OF_COURSE: baseUrl + 'deleteSubTopicNames',
+
+  
 
 
 

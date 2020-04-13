@@ -6,7 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
-
+import { NgxSpinnerModule } from "ngx-spinner";
+ 
 // import { MatCardModule } from '@angular/material/card';
 // import { MatDatepickerModule } from '@angular/material/datepicker';
 // import { MatNativeDateModule } from '@angular/material/core';
@@ -23,7 +24,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 //Services
 import { CommonService } from './Services/common.service';
 import { EncrDecrService } from './Services/encr-decr.service';
-
 
 ///////////MDB/////////////////
 import {
@@ -54,7 +54,7 @@ import {
 // import { A11yModule } from '@angular/cdk/a11y';
 // import { DragDropModule } from '@angular/cdk/drag-drop';
 // import { PortalModule } from '@angular/cdk/portal';
- //import { ScrollingModule } from '@angular/cdk/scrolling';
+//import { ScrollingModule } from '@angular/cdk/scrolling';
 // import { CdkStepperModule } from '@angular/cdk/stepper';
 // import { CdkTableModule } from '@angular/cdk/table';
 // import { CdkTreeModule } from '@angular/cdk/tree';
@@ -70,7 +70,7 @@ import {
 // import { MatDatepickerModule } from '@angular/material/datepicker';
 // import { MatDialogModule } from '@angular/material/dialog';
 // import { MatDividerModule } from '@angular/material/divider';
- //import { MatExpansionModule } from '@angular/material/expansion';
+//import { MatExpansionModule } from '@angular/material/expansion';
 // import { MatGridListModule } from '@angular/material/grid-list';
 // import { MatIconModule } from '@angular/material/icon';
 // import { MatInputModule } from '@angular/material/input';
@@ -78,7 +78,7 @@ import {
 // import { MatMenuModule } from '@angular/material/menu';
 // import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 // import { MatPaginatorModule } from '@angular/material/paginator';
-// import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 // import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // import { MatRadioModule } from '@angular/material/radio';
 // import { MatSelectModule } from '@angular/material/select';
@@ -102,7 +102,7 @@ import { DashboardModule } from './Dashboard/dashboard.module';
 @NgModule({
   declarations: [
     AppComponent,
-  
+
 
 
   ],
@@ -163,7 +163,7 @@ import { DashboardModule } from './Dashboard/dashboard.module';
     //  MatMenuModule,
     //  MatNativeDateModule,
     //  MatPaginatorModule,
-    //  MatProgressBarModule,
+     MatProgressBarModule,
     //  MatProgressSpinnerModule,
     //  MatRadioModule,
     //  MatRippleModule,
@@ -187,6 +187,7 @@ import { DashboardModule } from './Dashboard/dashboard.module';
       preventDuplicates: true,
       enableHtml: true
     }),
+    NgxSpinnerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

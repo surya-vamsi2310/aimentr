@@ -53,7 +53,7 @@
             <div class="main-panel__table-cell">
                 <div class="main-panel__switch">
                     <span class="main-panel__switch__text">Already have an account?</span>
-                    <button mat-button class="main-panel__switch__button" id="login-sign-in-button" href=" ">
+                    <button mat-button class="main-panel__switch__button" id="login-sign-in-button" routerLink="/login">
                         Sign in
                     </button>
                 </div>
@@ -103,7 +103,7 @@
                         <div class="form__group">
                             <label for="email" class="form__label">Role</label>
                             <select matInput id="inputState" class="form__input validate-empty" name="role"
-                                [(ngModel)]="UserRegistration.role" (change)="changeRole()">
+                                [(ngModel)]="UserRegistration.role" (change)="changeRole()" required>
                                 <option selected value="null">Choose...</option>
                                 <option value=3>Mentor</option>
                                 <option value=2>Student</option>
@@ -129,7 +129,7 @@
                                 </div>
                             </div>
 
-                            <div class="form__group ea__prehide">
+                            <!-- <div class="form__group ea__prehide">
                                 <label for="name" class="form__label">User Name</label>
                                 <input type="text" class="form__input validate-empty " #Username="ngModel"
                                     name="username" [(ngModel)]="UserRegistration.username" id="name"
@@ -142,9 +142,9 @@
                                         Please enter your full name.
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="form__group ea__prehide">
+                            <!-- <div class="form__group ea__prehide">
                                 <label for="password" class="form__label">Password</label>
                                 <input id="password" type="password" class="form__input validate-empty"
                                     #Password="ngModel" name="password" [(ngModel)]="UserRegistration.password"
@@ -161,7 +161,7 @@
                                         Your password must be at least 6 characters long.
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="form__page sign-up__step-one" *ngIf="UserRegistration.role == 3">
