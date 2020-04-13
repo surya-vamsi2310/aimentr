@@ -104,7 +104,7 @@
                         <div class="form__group">
                             <label for="email" class="form__label">Role</label>
                             <select matInput id="inputState" class="form__input validate-empty" name="role"
-                                [(ngModel)]="UserRegistration.role" (change)="changeRole()">
+                                [(ngModel)]="UserRegistration.role" (change)="changeRole()" required>
                                 <option selected value="null">Choose...</option>
                                 <option value=3>Mentor</option>
                                 <option value=2>Student</option>

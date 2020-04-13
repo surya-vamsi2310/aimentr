@@ -6,7 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
-
+import { NgxSpinnerModule } from "ngx-spinner";
+ 
 // import { MatCardModule } from '@angular/material/card';
 // import { MatDatepickerModule } from '@angular/material/datepicker';
 // import { MatNativeDateModule } from '@angular/material/core';
@@ -77,7 +78,7 @@ import {
 // import { MatMenuModule } from '@angular/material/menu';
 // import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 // import { MatPaginatorModule } from '@angular/material/paginator';
-// import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 // import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // import { MatRadioModule } from '@angular/material/radio';
 // import { MatSelectModule } from '@angular/material/select';
@@ -162,7 +163,7 @@ import { DashboardModule } from './Dashboard/dashboard.module';
     //  MatMenuModule,
     //  MatNativeDateModule,
     //  MatPaginatorModule,
-    //  MatProgressBarModule,
+     MatProgressBarModule,
     //  MatProgressSpinnerModule,
     //  MatRadioModule,
     //  MatRippleModule,
@@ -186,6 +187,7 @@ import { DashboardModule } from './Dashboard/dashboard.module';
       preventDuplicates: true,
       enableHtml: true
     }),
+    NgxSpinnerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

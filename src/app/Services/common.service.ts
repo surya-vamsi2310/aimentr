@@ -11,6 +11,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Router, ActivatedRoute, Data } from '@angular/router';
 import { Subject } from 'rxjs'
 import { EncrDecrService } from './encr-decr.service'
+import { NgxSpinnerService } from "ngx-spinner";
+
 
 
 @Injectable({
@@ -24,7 +26,8 @@ export class CommonService {
   constructor(private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
-    private EncrDecrService: EncrDecrService,) { }
+    private EncrDecrService: EncrDecrService,
+    private spinner: NgxSpinnerService) { }
 
 
 
@@ -34,8 +37,8 @@ export class CommonService {
     options.headers['Access-Control-Allow-Origin'] = '*';
 
     if (this.isLoggedIn()) {
-      console.log("coming here:: ", this.authToken );
-      options.headers['Authorization'] = this.authToken ;
+      console.log("coming here:: ", this.authToken);
+      options.headers['Authorization'] = this.authToken;
     }
     return options;
   }
@@ -43,22 +46,25 @@ export class CommonService {
 
 
   loginOrRegister(url, data): Observable<Object> {
+    this.spinner.show();
     return this.http.post(url, data, this.getHeaders()).pipe(
       map((response: Data) => {
+        this.spinner.hide();
         console.log(response);
-        if(response.token){
+        if (response.token) {
           localStorage.setItem('jwtToken', response.token);
           var encriptedUserInfo = JSON.stringify(response.user);
-          localStorage.setItem('userInfo',this.EncrDecrService.set(encriptedUserInfo));
-  
+          localStorage.setItem('userInfo', this.EncrDecrService.set(encriptedUserInfo));
+
         }
+
         return response
 
       })
     );
   }
 
- 
+
   isLoggedIn() {
     this.loadToken()
     return !!localStorage.getItem('userInfo');
@@ -68,6 +74,9 @@ export class CommonService {
     const token = localStorage.getItem('jwtToken');
     this.authToken = token;
   }
+
+
+
 
 
   getUserDetails(prop) {
@@ -86,17 +95,32 @@ export class CommonService {
 
 
   postMethod(url, data): Observable<Object> {
+    this.spinner.show();
     return this.http.post(url, data, this.getHeaders()).pipe(
       map((response: Data) => {
+        this.spinner.hide();
         return response
       })
     );
   }
 
   getMethod(url): Observable<Object> {
-    return this.http.get(url , this.getHeaders()).pipe(map(response => {
+    this.spinner.show();
+    return this.http.get(url, this.getHeaders()).pipe(map(response => {
+      this.spinner.hide();
       return response
     }))
+  }
+
+
+
+  getuserInfo() {
+    if (this.isLoggedIn() && !isNullOrUndefined(localStorage.getItem('userInfo')) && localStorage.getItem('userInfo') != 'undefined') {
+      const userDetails = JSON.parse(this.EncrDecrService.get(localStorage.getItem('userInfo')));
+      return userDetails;
+    } else {
+      return null;
+    }
   }
 
 
@@ -105,7 +129,7 @@ export class CommonService {
     localStorage.removeItem('jwtToken');
     localStorage.removeItem('userInfo');
     this.router.navigate(['/']);
-    
+
   }
 
 
@@ -115,7 +139,7 @@ export class CommonService {
   //   return headers;
   // }
 
-  
+
 
 
 
