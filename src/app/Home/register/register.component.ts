@@ -74,11 +74,6 @@ export class RegisterComponent implements OnInit {
     const options = { headers: {} };
     options.headers['Content-Type'] = 'application/json';
     options.headers['Access-Control-Allow-Origin'] = '*';
-
-    // if(this.authSrv.isLoggedIn()) {
-    //   console.log("coming here:: ",this.authSrv.getUserDetails('jwtToken'));
-    //   options.headers['Authorization'] = this.authSrv.getUserDetails('jwtToken');
-    // }
     return options;
   }
 

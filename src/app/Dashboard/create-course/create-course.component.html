@@ -214,9 +214,20 @@
                                                                 </mat-panel-title>
                                                             </mat-expansion-panel-header>
 
-                                                            <div class="row" *ngIf="SessionType == 'Offline'">
+                                                            <div class="row"
+                                                                *ngIf="CourseDetails.courseType == 'Offline'">
                                                                 <div class="col-md-12  pt-4 pb-3 text-center">
-                                                                    <a href="javascript:void(0)">
+
+                                                                    <form #selectFile="ngForm" novalidate
+                                                                        class="d-none">
+                                                                        <input type="file" #VideoUpload
+                                                                            (change)="fileChangeEvent($event , Subitem)"
+                                                                            placeholder="Upload Video..."
+                                                                            accept="video/*" required />
+                                                                    </form>
+
+                                                                    <a href="javascript:void(0)"
+                                                                        (click)="VideoUpload.click()">
                                                                         <mdb-icon far icon="play-circle" size="2x"
                                                                             color="cyan-text">
                                                                         </mdb-icon>
@@ -227,8 +238,8 @@
                                                             </div>
 
                                                             <div class="row  pt-4 pb-3 justify-content-center"
-                                                                *ngIf="SessionType == 'Online'">
-                                                                <div class="col-md-4 text-center">
+                                                                *ngIf="CourseDetails.courseType == 'Online'">
+                                                                <!-- <div class="col-md-4 text-center">
                                                                     <a href="javascript:void(0)">
                                                                         <mdb-icon far icon="file-alt" size="2x"
                                                                             color="cyan-text">
@@ -236,10 +247,13 @@
                                                                         <br>
                                                                         Text Adding
                                                                     </a>
-                                                                </div>
+                                                                </div> -->
                                                                 <div class="col-md-4 pt-3 text-center">
                                                                     <a href="javascript:void(0)">
-                                                                        <mat-slide-toggle> Programming
+                                                                        <mat-slide-toggle name="programming"
+                                                                            [(ngModel)]="Subitem.programming"
+                                                                            (change)="UpdateProgramStatus(Subitem)">
+                                                                            Programming
                                                                         </mat-slide-toggle>
                                                                     </a>
                                                                 </div>
@@ -345,7 +359,8 @@
                         <form #SubtopicsAdd='ngForm' novalidate>
 
                             <select class="browser-default custom-select my-3" name="topicId"
-                                [(ngModel)]="addCourseSubTopics.topicId" required (change)="changeTopic()" [disabled]="topicAlteadySelected">
+                                [(ngModel)]="addCourseSubTopics.topicId" required (change)="changeTopic()"
+                                [disabled]="topicAlteadySelected">
                                 <option value="" selected>Choose a Topic</option>
                                 <option value="{{item.topicId}}" *ngFor="let item of AllTopics">{{item.topicName}}
                                 </option>

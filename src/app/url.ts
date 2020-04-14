@@ -49,7 +49,10 @@ export const APIURL = {
     UPDATE_SUB_TOPIC_NAMES_OF_COURSE: baseUrl + 'updateSubTopicNames',
     DELETE_SUB_TOPIC_NAMES_OF_COURSE: baseUrl + 'deleteSubTopicNames',
 
-  
+    UPDATE_SUB_TOPIC_PROGRAMMING_STATUS: baseUrl + 'updateSubTopicProgrammingStatus',
+    UPDATE_SUB_TOPIC_VIDEO_URL: baseUrl + 'updateSubTopicVideoUrl',
+
+
 
 
 
