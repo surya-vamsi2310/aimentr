@@ -1,14 +1,9 @@
-// /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-// // @import '../src/app/stepper/stepper.component.scss';
 
 * {
     font-family: "Roboto";
-    // font-weight: 400;
+
 }
-
-
-
 .mat-step-header .mat-step-icon-selected,
 .mat-step-header .mat-step-icon-state-done,
 .mat-step-header .mat-step-icon-state-edit {
@@ -24,7 +19,7 @@
 .btn-rounded {
     border-radius: 25px !important;
 }
-
+ 
 
 .StudentStepper {
     .mat-horizontal-stepper-header-container {

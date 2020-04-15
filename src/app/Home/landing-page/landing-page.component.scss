@@ -2,40 +2,64 @@
      background-color: #f0f4f7;
      font-family: Roboto;
 
+ }
+
+ .bak-gr {
+     background-image: Url('./assets/Artboard.jpg');
+     //background-repeat: no-repeat;
+     background-size: cover;
+    background-position: center;
+
+ }
+
+ .noel {
+     background-color: #689f38;
+ }
+
+
+ .head {
+     font-weight: bolder;
+
+     color: white;
+     font-size: -webkit-xxx-large;
+
+ }
+
+ .heading2 {
+     font-size: xx-large;
+ }
+
+
+ 
+
+ .benifits {
+     background-color: #e2ddd7;
+   //  background-color: #512da8;
+     ;
+     color: black;
+ }
+
+ .secondsection {
+     margin-top: -150px;
+ }
+
+
+ .bottom {
+     background-color: black;
+ }
+
+ .line-height2 {
+     line-height: 3 !important;
+ }
+ .learnContentCards {
+    min-height: 100px;
+    height: 280px;
+    transition: 0.2s linear;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #ec407a;
 }
-
-.bak-gr {
-    background-image:Url('./assets/Artboard.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: center;
-    padding-bottom: 20%;
-    
- }
- .noel{
-     background-color: white;
- }
-
-
- .heading h1 {
-     font-weight:bolder;
-    
-     color:white;
-     font-size:  -webkit-xxx-large;
-     
- }
-
-
- .world {
-   background-color: #e2ddd7;
-       color: black;
- }
-
-.secondsection{
-    margin-top: -150px;
-}
-
-
-.bottom{
-    background-color: black;
+.learnContentCards:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+    -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -4px, 0);
 }
