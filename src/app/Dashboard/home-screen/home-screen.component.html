@@ -39,16 +39,14 @@
                                             COURSE OVERVIEW
                                         </span>
                                     </h3>
-                                    <h1 class="Headding1">Getting Started with Python <br> Collaborative Codding </h1>
+                                    <h1 class="Headding1">{{VoewCourse.courseName}} </h1>
                                     <h2>
                                         <span class="CourseOverViewBorder pb-1">
-                                            Prerequisites 
+                                            Prerequisites
                                         </span>
                                     </h2>
                                     <h4>
-                                        This course assumes basic proficiency with Java, including working with
-                                        collections,
-                                        implementing interfaces, and extending abstract classes.
+                                        {{VoewCourse.prerequisites}}
                                     </h4>
                                     <div class="mt-4 pt-4">
                                         <button type="button" mdbBtn color="pink" mdbWavesEffect>start free
@@ -71,27 +69,22 @@
                         <div class="row">
                             <div class="col-md-6 pr-4">
                                 <p class="h2">About this Course</p>
-                                <p class="aboutthisCourseContent">This course explores how to use LibGDX to build 2D
-                                    games that run anywhere, from web
-                                    browsers to mobile devices. We start with simple drawings, and then turn to simple
-                                    animations, physics, and user input handling. Finally, we create a full game, called
-                                    Icicles, where icicles rain down from the top of the screen, and the player must
-                                    dodge them using the arrow keys or by tilting their phone.</p>
+                                <p class="aboutthisCourseContent">{{VoewCourse.description}}</p>
                             </div>
 
                             <div class="col-md-6 px-5">
                                 <div class="row border-bottom pb-4">
                                     <div class="col-md-4">
                                         <h4 class="text-uppercase grey-text">COURSE COST</h4>
-                                        <p class="h6">Free</p>
+                                        <p class="h6">Rs {{VoewCourse.cost}}</p>
                                     </div>
                                     <div class="col-md-4">
                                         <h4 class="text-uppercase grey-text">TIMELINE</h4>
-                                        <p class="h6">Approx. 8 Hours</p>
+                                        <p class="h6">{{VoewCourse.duration}} (Days)</p>
                                     </div>
                                     <div class="col-md-4">
                                         <h4 class="text-uppercase grey-text">SKILL LEVEL</h4>
-                                        <p class="h6">Intermediate</p>
+                                        <p class="h6">{{VoewCourse.skillLevel}}</p>
                                     </div>
                                 </div>
                                 <div class="row py-4">
@@ -105,7 +98,7 @@
                                                         Rich Learning Content
                                                     </li>
                                                     <li class="list-group-item border-0">
-                                                        <mdb-icon fas icon="mask"  size="lg"></mdb-icon>
+                                                        <mdb-icon fas icon="mask" size="lg"></mdb-icon>
                                                         Taught by Industry Pros
 
                                                     </li>
@@ -150,22 +143,22 @@
                             </div>
 
 
-                            <div class="col-md-4 mb-5 ">
-                                <mdb-card class="learnContentCards cursor-pointer"
-                                data-toggle="modal"  (click)="CourseOverview.show()">
+                            <div class="col-md-4 mb-5 " *ngFor="let item of AllTopics ; let i = index">
+                                <mdb-card class="learnContentCards cursor-pointer" data-toggle="modal"
+                                    (click)="CourseOverview.show(); GetSubTopicsList(item)">
                                     <mdb-card-body class="courseCardsBody">
                                         <mdb-card-title>
-                                            <h4>Lesson 1</h4>
-                                            <h2>Intro to cross paltform Game development</h2>
+                                            <h4>Topic {{i+1}}</h4>
+                                            <h2>{{item.topicName}}</h2>
                                         </mdb-card-title>
                                         <mdb-card-text>
                                         </mdb-card-text>
                                     </mdb-card-body>
                                 </mdb-card>
                             </div>
-                            <div class="col-md-4 mb-5 ">
-                                <mdb-card class="learnContentCards cursor-pointer"
-                                data-toggle="modal"  (click)="CourseOverview.show()">
+                            <!-- <div class="col-md-4 mb-5 ">
+                                <mdb-card class="learnContentCards cursor-pointer" data-toggle="modal"
+                                    (click)="CourseOverview.show()">
                                     <mdb-card-body class="courseCardsBody">
                                         <mdb-card-title>
                                             <h4>Lesson 2</h4>
@@ -177,8 +170,8 @@
                                 </mdb-card>
                             </div>
                             <div class="col-md-4 mb-5 ">
-                                <mdb-card class="learnContentCards cursor-pointer"
-                                data-toggle="modal"  (click)="CourseOverview.show()">
+                                <mdb-card class="learnContentCards cursor-pointer" data-toggle="modal"
+                                    (click)="CourseOverview.show()">
                                     <mdb-card-body class="courseCardsBody">
                                         <mdb-card-title>
                                             <h4>Lesson 3</h4>
@@ -190,8 +183,8 @@
                                 </mdb-card>
                             </div>
                             <div class="col-md-4 mb-5 ">
-                                <mdb-card class="learnContentCards cursor-pointer"
-                                data-toggle="modal"  (click)="CourseOverview.show()">
+                                <mdb-card class="learnContentCards cursor-pointer" data-toggle="modal"
+                                    (click)="CourseOverview.show()">
                                     <mdb-card-body class="courseCardsBody">
                                         <mdb-card-title>
                                             <h4>Lesson 4</h4>
@@ -203,8 +196,8 @@
                                 </mdb-card>
                             </div>
                             <div class="col-md-4 mb-5 ">
-                                <mdb-card class="learnContentCards cursor-pointer" 
-                                data-toggle="modal"  (click)="CourseOverview.show()">
+                                <mdb-card class="learnContentCards cursor-pointer" data-toggle="modal"
+                                    (click)="CourseOverview.show()">
                                     <mdb-card-body class="courseCardsBody">
                                         <mdb-card-title>
                                             <h4>Lesson 5</h4>
@@ -214,8 +207,8 @@
                                         </mdb-card-text>
                                     </mdb-card-body>
                                 </mdb-card>
-                            </div>
-                          
+                            </div> -->
+
                             <!-- <div class="col-md-4 mb-5">
                                 <mdb-card class="learnContentCards">
                                     <div class="view rgba-white-slight waves-light" mdbWavesEffect>
@@ -256,37 +249,42 @@
 <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
   mdbWavesEffect>Launch Modal</button> -->
 
-<div mdbModal #CourseOverview="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-notify modal-info" role="document">
-    <!--Content-->
-    <div class="modal-content">
-      <!--Header-->
-      <div class="modal-header modal-cyan-header">
-        <p class="heading lead">Modal Info</p>
+<div mdbModal #CourseOverview="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header modal-cyan-header">
+                <p class="heading lead">{{SelectedTopicName}}</p>
 
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="CourseOverview.hide()">
-          <span aria-hidden="true" class="white-text">&times;</span>
-        </button>
-      </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    (click)="CourseOverview.hide()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
 
-      <!--Body-->
-      <div class="modal-body">
-        <div class="text-center">
-          <mdb-icon fas icon="check" size="4x" class="mb-3 animated rotateIn"></mdb-icon>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit iusto nulla aperiam blanditiis ad consequatur
-            in dolores culpa, dignissimos, eius non possimus fugiat. Esse ratione fuga, enim, ab officiis totam.</p>
+            <!--Body-->
+            <div class="modal-body">
+                <mat-list>
+                    <mat-list-item *ngFor="let item of AllSubtopics">
+                      <!-- <mat-icon mat-list-icon>folder</mat-icon> -->
+                      <mat-icon mat-list-icon>adjust</mat-icon>
+                      <div mat-line>{{item.subTopicName}}</div>
+                    </mat-list-item>
+                   
+                  </mat-list>
+            </div>
+
+            <!--Footer-->
+            <!-- <div class="modal-footer justify-content-center">
+                <a type="button" mdbBtn color="primary" class="waves-light" mdbWavesEffect>Get it now
+                    <mdb-icon far icon="gem" class="ml-1"></mdb-icon>
+                </a>
+                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                    (click)="CourseOverview.hide()">No, thanks</a>
+            </div> -->
         </div>
-      </div>
-
-      <!--Footer-->
-      <div class="modal-footer justify-content-center">
-        <a type="button" mdbBtn color="primary" class="waves-light" mdbWavesEffect>Get it now
-          <mdb-icon far icon="gem" class="ml-1"></mdb-icon>
-        </a>
-        <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect (click)="CourseOverview.hide()">No, thanks</a>
-      </div>
+        <!--/.Content-->
     </div>
-    <!--/.Content-->
-  </div>
 </div>

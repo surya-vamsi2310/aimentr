@@ -119,25 +119,37 @@
 
                                     <form #aboutCourse="ngForm" novalidate>
 
-                                        <div class="input-group  my-5">
+                                        <div class="input-group  my-4">
                                             <input type="number" class="form-control" placeholder="Course Cost"
                                                 name="cost" [(ngModel)]="Payload.cost" required>
                                         </div>
-                                        <div class="input-group  my-5">
-                                            <input type="text" class="form-control" placeholder="Course Time (hours)"
+                                        <div class="input-group  my-4">
+                                            <input type="text" class="form-control" placeholder="Course Time (days)"
                                                 name="duration" [(ngModel)]="Payload.duration" required>
                                         </div>
 
+                                        <div class="input-group  my-4">
+                                            <select class="browser-default custom-select " name="skillLevel"
+                                                [(ngModel)]="Payload.skillLevel" required>
+                                                <option selected value="">Choose Skill Level</option>
+                                                <option value="Beginner">Beginner</option>
+                                                <option value="Advanced">Advanced</option>
+                                                <option value="Expert">Expert</option>
 
-                                        <select class="browser-default custom-select my-4" name="skillLevel"
-                                            [(ngModel)]="Payload.skillLevel" required>
-                                            <option selected value="">Choose Skill Level</option>
-                                            <option value="Beginner">Beginner</option>
-                                            <option value="Advanced">Advanced</option>
-                                            <option value="Expert">Expert</option>
+                                            </select>
+                                        </div>
 
-                                        </select>
-
+                                        <div class="input-group  my-4">
+                                            <mat-form-field class="w-100">
+                                                <mat-label>Start Date</mat-label>
+                                                <input matInput [matDatepicker]="StartDate" name="startDate"
+                                                    [(ngModel)]="Payload.startDate">
+                                                <mat-datepicker-toggle matSuffix [for]="StartDate">
+                                                </mat-datepicker-toggle>
+                                                <mat-datepicker #StartDate></mat-datepicker>
+                                            </mat-form-field>
+                                        </div>
+                                        
                                         <div class="md-form my-4">
                                             <textarea type="text" id="form7" class="md-textarea form-control" mdbInput
                                                 name="description" [(ngModel)]="Payload.description"

@@ -29,6 +29,15 @@ export class CommonService {
     private EncrDecrService: EncrDecrService,
     private spinner: NgxSpinnerService) { }
 
+    getRoles(){
+      const roles = {
+        admin : 1,
+        student : 2,
+        mentor : 3
+      };
+      return roles;
+    }
+  
 
 
   getHeaders() {

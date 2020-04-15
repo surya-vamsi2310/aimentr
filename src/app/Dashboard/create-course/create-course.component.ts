@@ -39,13 +39,7 @@ export class CreateCourseComponent implements OnInit {
     courseType: "",
     duration: "",
     skillLevel: "",
-
-
     topics: [],
-    // topicIdList: [number],
-
-
-
     timings: {  // only online sessions
       start: {
         hour: null,

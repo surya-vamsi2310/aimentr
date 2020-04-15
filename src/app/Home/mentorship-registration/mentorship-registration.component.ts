@@ -210,7 +210,7 @@ export class MentorshipRegistrationComponent implements OnInit {
         if (data.success) {
 
           this.toastr.success(data.msg, "Success !");
-          this.router.navigate(['/home'])
+          this.router.navigate(['/home/dashboard'])
 
         }
         else {

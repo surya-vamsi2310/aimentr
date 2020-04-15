@@ -13,9 +13,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
- url: string = 'http://localhost:3000/';
- loginForm: FormGroup;
+  url: string = 'http://localhost:3000/';
+  loginForm: FormGroup;
 
+  roles;
 
 
   constructor(private formBuilder: FormBuilder,
@@ -23,7 +24,12 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private EncrDecrService: EncrDecrService,
-    private toastr: ToastrService,) { }
+    private toastr: ToastrService, ) {
+
+    this.roles = this.CommonService.getRoles();
+
+    console.log("this.roles", this.roles);
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -32,9 +38,9 @@ export class LoginComponent implements OnInit {
       // remember: ['']
     });
   }
-  
 
-  login(){
+
+  login() {
     console.log(this.loginForm.value);
 
     var url = APIURL.AUTH_LOGIN_USER;
@@ -42,9 +48,16 @@ export class LoginComponent implements OnInit {
       .subscribe((data: Data) => {
         console.log("Data===>", data);
         if (data.success) {
- 
+
           this.toastr.success("Login Successfully!", "Success !");
-          this.router.navigate(['/home'])
+
+          if (data.user.role == this.roles.student) {
+            this.router.navigate(['/home'])
+          }
+          else if (data.user.role == this.roles.mentor) {
+            this.router.navigate(['/home/dashboard'])
+          }
+
 
         }
         else {
@@ -110,5 +123,5 @@ export class LoginComponent implements OnInit {
   // resetFormFields() {
   //   this.loginForm.reset();
   // }
-// }
+  // }
 } 
