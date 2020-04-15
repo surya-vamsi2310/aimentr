@@ -6,6 +6,12 @@ import { EncrDecrService } from '../../Services/encr-decr.service'
 import { APIURL } from '../../url';
 import { ToastrService } from 'ngx-toastr';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import {
+  HttpClient,
+  HttpRequest,
+  HttpEventType,
+  HttpResponse, HttpHeaders
+} from '@angular/common/http';
 
 @Component({
   selector: 'app-create-course',
@@ -14,9 +20,10 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class CreateCourseComponent implements OnInit {
 
-  viewstep = "4";
-  SessionType = "Online";
-
+  // viewstep = "4";
+  // SessionType = "Online";
+  viewstep = "1";
+  SessionType = "";
 
 
 
@@ -120,12 +127,19 @@ export class CreateCourseComponent implements OnInit {
     moveItemInArray(item.SubTopicsData, event.previousIndex, event.currentIndex);
   }
 
-  constructor(private _formBuilder: FormBuilder,
+
+  filesToUpload: Array<File> = [];
+
+
+  constructor(
+    private http: HttpClient,
+    private _formBuilder: FormBuilder,
     private CommonService: CommonService,
     private router: Router,
     private route: ActivatedRoute,
     private EncrDecrService: EncrDecrService,
-    private toastr: ToastrService, ) {
+    private toastr: ToastrService,
+  ) {
 
     this.userInfo = this.CommonService.getuserInfo();
     console.log("==", this.userInfo)
@@ -316,6 +330,72 @@ export class CreateCourseComponent implements OnInit {
 
   }
 
+
+  fileChangeEvent(fileInput: any, Subitem) {
+    this.filesToUpload = <Array<File>>fileInput.target.files;
+    this.VideoUpload(Subitem);
+  }
+
+  VideoUpload(Subitem) {
+    const formData: any = new FormData();
+    const files: Array<File> = this.filesToUpload;
+    formData.append("uploads[]", files[0], files[0]['name']);
+    formData.append("subTopicId", Subitem.subTopicId);
+
+    var url = APIURL.UPDATE_SUB_TOPIC_VIDEO_URL;
+    this.http.post(url, formData).subscribe(
+      (response: Data) => {
+        console.log(response);
+        if (response.Status == 200) {
+          if (response.Other.Success == true) {
+            this.toastr.success("Video added successfully!", "Success !");
+          } else {
+            this.toastr.warning("Video Uploading Failed!", "Error !");
+          }
+        } else {
+          this.toastr.error(response.Message, "Error !");
+        }
+
+      }
+    )
+
+    // this.CommonService.postMethod(url, formData)
+    //   .subscribe((data: Data) => {
+    //     console.log("videoUrl" , data)
+    //     if (data.Status == 200) {
+
+    //     }
+    //   })
+  }
+
+
+
+  UpdateProgramStatus(Subitem) {
+
+    var obj = {
+      subTopicId:Subitem.subTopicId,
+      programming: Subitem.programming
+    }
+    console.log(Subitem)
+    var url = APIURL.UPDATE_SUB_TOPIC_PROGRAMMING_STATUS;
+    this.CommonService.postMethod(url, obj)
+      .subscribe((data: Data) => {
+        console.log("Programming", data)
+        if (data.Status == 200) {
+          if (data.Other.Success == true) {
+            this.toastr.success("Programming Editor added successfully!", "Success !");
+          } else {
+            this.toastr.warning("Programming Editor Adding Failed!", "Error !");
+          }
+        }else {
+          this.toastr.error(data.Message, "Error !");
+        }
+      })
+
+
+
+
+  }
 
 
 
