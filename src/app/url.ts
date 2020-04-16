@@ -41,7 +41,7 @@ export const APIURL = {
 
     ADD_TOPICS_OF_COURSE: baseUrl + 'AddTopicOfCourse',
     GET_TOPICS_OF_COURSE: baseUrl + 'getTopicsOfCourse',
-    UPDATE_TOPIC_NAMES_NAMES_OF_COURSE: baseUrl + 'updateTopicNames',
+    UPDATE_TOPIC_NAMES_OF_COURSE: baseUrl + 'updateTopicNames',
     DELETE_TOPICS_NAMES_OF_COURSE: baseUrl + 'deleteTopicNames',
 
     ADD_SUB_TOPICS_OF_COURSE: baseUrl + 'AddSubTopicOfCourse',

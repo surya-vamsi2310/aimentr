@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl, NgModel } from '@angular/forms';
 import { CommonService } from '../../Services/common.service';
 import { Router, NavigationExtras, ActivatedRoute, Data } from '@angular/router';
@@ -13,6 +13,9 @@ import {
   HttpResponse, HttpHeaders
 } from '@angular/common/http';
 
+import { MdbBtnDirective, ModalDirective } from 'angular-bootstrap-md';
+
+
 @Component({
   selector: 'app-create-course',
   templateUrl: './create-course.component.html',
@@ -25,12 +28,14 @@ export class CreateCourseComponent implements OnInit {
   viewstep = "1";
   SessionType = "";
 
+  EditMode = false;
 
 
   userInfo;
 
   Payload = {
     mentor: "",
+    courseId: null,
     courseName: "",
     subtitle: "",
     prerequisites: "",
@@ -39,19 +44,19 @@ export class CreateCourseComponent implements OnInit {
     courseType: "",
     duration: "",
     skillLevel: "",
-    topics: [],
-    timings: {  // only online sessions
-      start: {
-        hour: null,
-        minute: null,
-        second: null
-      },
-      end: {
-        hour: null,
-        minute: null,
-        second: null
-      }
-    },
+    // topics: [],
+    // timings: {  // only online sessions
+    //   start: {
+    //     hour: null,
+    //     minute: null,
+    //     second: null
+    //   },
+    //   end: {
+    //     hour: null,
+    //     minute: null,
+    //     second: null
+    //   }
+    // },
 
     startDate: null,
     endDate: null,
@@ -82,7 +87,7 @@ export class CreateCourseComponent implements OnInit {
   CourseDetails = {
     mentor: "",
     courseId: null,
-    _id: null,
+    // _id: null,
     courseName: "",
     courseType: "",
     skillLevel: "",
@@ -112,6 +117,8 @@ export class CreateCourseComponent implements OnInit {
 
   topicAlteadySelected = false;
 
+  EditTopicId = null;
+  EditSubTopicId = null;
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.AllTopics, event.previousIndex, event.currentIndex);
@@ -123,6 +130,10 @@ export class CreateCourseComponent implements OnInit {
 
 
   filesToUpload: Array<File> = [];
+
+
+  @ViewChild('AddTopicModal', { static: true }) AddTopicModal: ModalDirective
+  @ViewChild('AddSubTopicModal', { static: true }) AddSubTopicModal: ModalDirective
 
 
   constructor(
@@ -147,7 +158,7 @@ export class CreateCourseComponent implements OnInit {
         this.UrlData = JSON.parse(DecriptedData);
         this.CourseDetails = {
           mentor: this.UrlData.mentor,
-          _id: this.UrlData._id,
+          // _id: this.UrlData._id,
           courseId: this.UrlData.courseId,
           courseName: this.UrlData.courseName,
           courseType: this.UrlData.courseType,
@@ -160,10 +171,79 @@ export class CreateCourseComponent implements OnInit {
         this.GetTopicsList();
       }
 
+
+      if (params.EditData) {
+        var DecriptedData = this.EncrDecrService.get(params.EditData);
+        this.UrlData = JSON.parse(DecriptedData);
+        var EditCourse = {
+          mentor: this.UrlData.mentor,
+          courseId: this.UrlData.courseId,
+          courseName: this.UrlData.courseName,
+        };
+        this.viewstep = '1';
+        console.log("UrlData", this.UrlData);
+        this.GetCourse(EditCourse);
+      }
+
+
+
+
+
+
     })
   }
 
   ngOnInit() {
+
+  }
+
+
+  GetCourse(item) {
+    var obj = {
+      courseId: item.courseId,
+    }
+    var url = APIURL.GET_ALL_COURSES_OF_MENTOR;
+    this.CommonService.postMethod(url, obj)
+      .subscribe((data: Data) => {
+        if (data.Status == 200) {
+          var EditCourse = data.Data[0];
+
+          this.SessionType = EditCourse.courseType;
+          this.EditMode = true;
+          this.Payload = {
+            mentor: this.userInfo.email,
+            courseId: EditCourse.courseId,
+            courseName: EditCourse.courseName,
+            subtitle: EditCourse.subtitle,
+            prerequisites: EditCourse.prerequisites,
+            cost: EditCourse.cost,
+            description: EditCourse.description,
+            courseType: EditCourse.courseType,
+            duration: EditCourse.duration,
+            skillLevel: EditCourse.skillLevel,
+            // topics: EditCourse.topics,
+            // timings: {  // only online sessions
+            //   start: {
+            //     hour: null,
+            //     minute: null,
+            //     second: null
+            //   },
+            //   end: {
+            //     hour: null,
+            //     minute: null,
+            //     second: null
+            //   }
+            // },
+            startDate: EditCourse.startDate,
+            endDate: EditCourse.endDate,
+            tags: EditCourse.tags,
+            skills: EditCourse.skills,
+
+          }
+
+
+        }
+      })
 
   }
 
@@ -175,20 +255,36 @@ export class CreateCourseComponent implements OnInit {
   aboutThisCourse() {
     console.log("this.Payload==>", this.Payload);
 
-    var url = APIURL.ADD_COURSE;
+    if (this.EditMode) {
+      var url = APIURL.UPDATE_COURSE;
+    } else {
+      var url = APIURL.ADD_COURSE;
+    }
+
     this.CommonService.postMethod(url, this.Payload)
       .subscribe((data: Data) => {
         console.log("Data===>", data);
         if (data.Success) {
-          this.toastr.success("Course added successfully! \n Now we can add topics and subtopics of course.", "Success !");
+          this.toastr.success(data.Message, "Success !");
           // this.viewstep = '4';
-          var CourseData = {
-            mentor: this.Payload.mentor,
-            courseId: data.Data.courseId,
-            courseName: this.Payload.courseName,
-            courseType: this.Payload.courseType,
-            skillLevel: this.Payload.skillLevel,
-            _id: data.Data._id,
+          if (this.EditMode) {
+            var CourseData = {
+              mentor: this.Payload.mentor,
+              courseId: this.Payload.courseId,
+              courseName: this.Payload.courseName,
+              courseType: this.Payload.courseType,
+              skillLevel: this.Payload.skillLevel,
+              // _id: data.Data._id,
+            }
+          } else {
+            var CourseData = {
+              mentor: this.Payload.mentor,
+              courseId: data.Data.courseId,
+              courseName: this.Payload.courseName,
+              courseType: this.Payload.courseType,
+              skillLevel: this.Payload.skillLevel,
+              // _id: data.Data._id,
+            }
           }
           var StringifyedData = JSON.stringify(CourseData);
           var EncriptedData = this.EncrDecrService.set(StringifyedData);
@@ -204,10 +300,10 @@ export class CreateCourseComponent implements OnInit {
 
 
 
-  coursebackfromLast() {
-    this.router.navigate(['/home/courseupload'], { queryParams: {} });
-    this.viewstep = '3';
-  }
+  // coursebackfromLast() {
+  //   this.router.navigate(['/home/courseupload'], { queryParams: {} });
+  //   this.viewstep = '3';
+  // }
 
 
   GetTopicsList() {
@@ -260,6 +356,12 @@ export class CreateCourseComponent implements OnInit {
       })
   }
 
+  OpenAddTopicPop() {
+    this.EditTopicId = null;
+    this.addCourseTopics.topicName = "";
+  }
+
+
 
   AddTopics() {
     this.addCourseTopics = {
@@ -292,13 +394,20 @@ export class CreateCourseComponent implements OnInit {
 
   openaddsubtopics() {
     this.topicAlteadySelected = false;
+    this.EditSubTopicId = null;
+    this.addCourseSubTopics.subTopicName = "";
   }
 
   SelectTopicForSubtopics(item) {
     this.addCourseSubTopics.topicId = item.topicId;
     this.addCourseSubTopics.topicName = item.topicName;
+
     this.topicAlteadySelected = true;
+
+    this.EditSubTopicId = null;
+    this.addCourseSubTopics.subTopicName = "";
   }
+
 
 
   AddSubTopics() {
@@ -313,6 +422,72 @@ export class CreateCourseComponent implements OnInit {
           this.addCourseSubTopics.subTopicName = "";
           this.toastr.success("SubTopic added successfully!", "Success !");
           this.GetSubTopicsList();
+        }
+      })
+  }
+
+
+
+  EditTopic(item) {
+    this.EditTopicId = item.topicId
+    this.addCourseTopics.topicName = item.topicName
+  }
+
+  UpdateTopic() {
+    var obj = {
+      topicId: this.EditTopicId,
+      topicName: this.addCourseTopics.topicName,
+    }
+
+    var url = APIURL.UPDATE_TOPIC_NAMES_OF_COURSE;
+    this.CommonService.postMethod(url, obj)
+      .subscribe((data: Data) => {
+        console.log("Updated topic===>", data);
+        if (data.Success) {
+          if (data.Other.Success) {
+            this.AddTopicModal.hide();
+            this.EditTopicId = null;
+            this.addCourseTopics.topicName = "";
+            this.toastr.success(data.Message, "Success !");
+            this.GetTopicsList();
+          } else {
+            this.toastr.warning(data.Message, "Error !");
+          }
+
+        }
+      })
+  }
+
+  EditSelectedSubTopic(Subitem) {
+    this.EditSubTopicId = Subitem.subTopicId;
+    this.addCourseSubTopics.subTopicName = Subitem.subTopicName;
+    this.addCourseSubTopics.topicId = Subitem.topicId;
+    this.addCourseSubTopics.topicName = Subitem.topicName;
+
+    this.topicAlteadySelected = true;
+  }
+
+  UpdateSubTopic() {
+    var obj = {
+      subTopicId: this.EditSubTopicId,
+      subTopicName: this.addCourseSubTopics.subTopicName,
+    }
+
+    var url = APIURL.UPDATE_SUB_TOPIC_NAMES_OF_COURSE;
+    this.CommonService.postMethod(url, obj)
+      .subscribe((data: Data) => {
+        console.log("Updated topic===>", data);
+        if (data.Success) {
+          if (data.Other.Success) {
+            this.AddSubTopicModal.hide();
+            this.EditSubTopicId = null;
+            this.addCourseSubTopics.subTopicName = "";
+            this.toastr.success(data.Message, "Success !");
+            this.GetSubTopicsList();
+          } else {
+            this.toastr.warning(data.Message, "Error !");
+          }
+
         }
       })
   }
@@ -367,7 +542,7 @@ export class CreateCourseComponent implements OnInit {
   UpdateProgramStatus(Subitem) {
 
     var obj = {
-      subTopicId:Subitem.subTopicId,
+      subTopicId: Subitem.subTopicId,
       programming: Subitem.programming
     }
     console.log(Subitem)
@@ -381,7 +556,7 @@ export class CreateCourseComponent implements OnInit {
           } else {
             this.toastr.warning("Programming Editor Adding Failed!", "Error !");
           }
-        }else {
+        } else {
           this.toastr.error(data.Message, "Error !");
         }
       })

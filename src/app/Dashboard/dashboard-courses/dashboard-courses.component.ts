@@ -109,4 +109,22 @@ export class DashboardCoursesComponent implements OnInit {
 
   }
 
+
+
+  EditCourse(item) {
+    var CourseData = {
+      mentor: item.mentor,
+      courseId: item.courseId,
+      courseName: item.courseName,
+    }
+    var StringifyedData = JSON.stringify(CourseData);
+    var EncriptedData = this.EncrDecrService.set(StringifyedData);
+    this.router.navigate(['/home/courseupload'], { queryParams: { EditData: EncriptedData } });
+
+  }
+
+
+
+
+
 }

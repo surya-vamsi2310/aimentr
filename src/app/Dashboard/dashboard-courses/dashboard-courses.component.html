@@ -342,7 +342,7 @@
                     <div class="col-md-4 my-3" *ngFor="let item of AvailableCourses">
                         <mdb-card class="CourseCards">
                             <mdb-card-body class="CourseCardBody">
-                                <mdb-icon far icon="edit" class="float-right" size="2x"></mdb-icon>
+                                <mdb-icon far icon="edit" class="float-right cursor-pointer" size="2x" (click)="EditCourse(item)"></mdb-icon>
                                 <!-- <mdb-card-title> -->
                                 <h2 class="text-uppercase pl-0">{{item.courseName}}</h2>
                                 <!-- </mdb-card-title> -->
