@@ -1,53 +1,41 @@
  .landing {
      background-color: #f0f4f7;
      font-family: Roboto;
-
  }
-
  .bak-gr {
-     background-image: Url('./assets/Artboard.jpg');
-     //background-repeat: no-repeat;
+     background-image: Url('./assets/images/home/landing.png');
      background-size: cover;
     background-position: center;
-
  }
-
- .noel {
-     background-color: #689f38;
- }
-
-
+.searchbox{
+   
+    width: 370px;
+    border: 1px solid white;
+}
+// .searchbox1{
+//     height: 30px;
+//     text-align: center;
+// }
  .head {
-     font-weight: bolder;
-
+     font-weight: normal;
+font-family: Open Sans;
      color: white;
      font-size: -webkit-xxx-large;
-
  }
-
  .heading2 {
+     font-weight: normal;
      font-size: xx-large;
  }
-
-
- 
-
  .benifits {
-     background-color: #e2ddd7;
-   //  background-color: #512da8;
-     ;
+     background-color: #e2ddd7;    
      color: black;
  }
-
- .secondsection {
-     margin-top: -150px;
- }
-
-
+ .noel {
+    background-color:#FFFACD;
+}
  .bottom {
      background-color: black;
  }
-
  .line-height2 {
      line-height: 3 !important;
  }
