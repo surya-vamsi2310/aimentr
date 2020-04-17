@@ -30,7 +30,6 @@ export class CreateCourseComponent implements OnInit {
 
   EditMode = false;
 
-
   userInfo;
 
   Payload = {
@@ -131,6 +130,15 @@ export class CreateCourseComponent implements OnInit {
 
   filesToUpload: Array<File> = [];
 
+
+  SelectedTopicForDeleting = {
+    topicId: null,
+    topicName: ""
+  }
+  SelectedSubTopicForDeleting = {
+    subTopicId: null,
+    subTopicName: ""
+  }
 
   @ViewChild('AddTopicModal', { static: true }) AddTopicModal: ModalDirective
   @ViewChild('AddSubTopicModal', { static: true }) AddSubTopicModal: ModalDirective
@@ -495,10 +503,6 @@ export class CreateCourseComponent implements OnInit {
 
 
 
-  SubmitCourse() {
-
-  }
-
 
   fileChangeEvent(fileInput: any, Subitem) {
     this.filesToUpload = <Array<File>>fileInput.target.files;
@@ -564,6 +568,72 @@ export class CreateCourseComponent implements OnInit {
 
 
 
+  }
+
+
+
+
+
+
+  ChooseDeleteTopic(item) {
+    this.SelectedTopicForDeleting = {
+      topicId: item.topicId,
+      topicName: item.topicName,
+    }
+  }
+
+
+  DeleteTopics() {
+    var obj = {
+      topicId: this.SelectedTopicForDeleting.topicId,
+    }
+    var url = APIURL.DELETE_TOPICS_NAMES_OF_COURSE;
+    this.CommonService.postMethod(url, obj)
+      .subscribe((data: Data) => {
+        console.log("Programming", data)
+        if (data.Status == 200) {
+          if (data.Other.Success == true) {
+            this.toastr.success(data.Message, "Success !");
+            this.GetTopicsList();
+          } else {
+            this.toastr.warning(data.Message, "Error !");
+          }
+        } else {
+          this.toastr.error(data.Message, "Error !");
+        }
+      })
+  }
+
+
+
+
+  ChooseDeleteSubTopic(item) {
+    this.SelectedSubTopicForDeleting = {
+      subTopicId: item.subTopicId,
+      subTopicName: item.subTopicName,
+    }
+  }
+
+
+  DeleteSubTopics() {
+    var obj = {
+      subTopicId: this.SelectedSubTopicForDeleting.subTopicId,
+    }
+    var url = APIURL.DELETE_SUB_TOPIC_NAMES_OF_COURSE;
+    this.CommonService.postMethod(url, obj)
+      .subscribe((data: Data) => {
+        console.log("Programming", data)
+        if (data.Status == 200) {
+          if (data.Other.Success == true) {
+            this.toastr.success(data.Message, "Success !");
+            this.GetSubTopicsList();
+          } else {
+            this.toastr.warning(data.Message, "Error !");
+          }
+        } else {
+          this.toastr.error(data.Message, "Error !");
+        }
+      })
   }
 
 

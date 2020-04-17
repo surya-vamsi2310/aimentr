@@ -15,17 +15,15 @@ import {
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-dashboard-courses',
-  templateUrl: './dashboard-courses.component.html',
-  styleUrls: ['./dashboard-courses.component.scss']
+  selector: 'app-studentview-mentordashboard',
+  templateUrl: './studentview-mentordashboard.component.html',
+  styleUrls: ['./studentview-mentordashboard.component.scss']
 })
-export class DashboardCoursesComponent implements OnInit {
-
+export class StudentviewMentordashboardComponent implements OnInit {
   userInfo;
-
   AvailableCourses = [];
 
-  EditMode = false;
+  UrlData;
 
   constructor(
     private http: HttpClient,
@@ -36,21 +34,41 @@ export class DashboardCoursesComponent implements OnInit {
     private EncrDecrService: EncrDecrService,
     private toastr: ToastrService,
   ) {
+
     this.userInfo = this.CommonService.getuserInfo();
 
-    console.log("userInfo", this.userInfo);
+    this.route.queryParams.subscribe(params => {
+      console.log(params.Data)
+      if (params.Data) {
+        var DecriptedData = this.EncrDecrService.get(params.Data);
+        this.UrlData = JSON.parse(DecriptedData);
+        this.GetMentorDetails();
+      }
+    })
 
-    this.GetAvailableCourses();
+    console.log("userInfo", this.userInfo);
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
+  GetMentorDetails() {
+    var obj = {
+      mentor: this.UrlData.mentor,
+    }
+    var url = APIURL.GET_ALL_COURSES_OF_MENTOR;
+    this.CommonService.postMethod(url, obj)
+      .subscribe((data: Data) => {
+        if (data.Status == 200) {
+          this.AvailableCourses = data.Data;
+          this.GetAvailableCourses();
+        }
+      })
   }
 
 
   GetAvailableCourses() {
     var obj = {
-      mentor: this.userInfo.email,
+      mentor: this.UrlData.mentor,
     }
     var url = APIURL.GET_ALL_COURSES_OF_MENTOR;
     this.CommonService.postMethod(url, obj)
@@ -111,19 +129,6 @@ export class DashboardCoursesComponent implements OnInit {
   }
 
 
-
-  EditCourse(item) {
-    if (this.EditMode) {
-      var CourseData = {
-        mentor: item.mentor,
-        courseId: item.courseId,
-        courseName: item.courseName,
-      }
-      var StringifyedData = JSON.stringify(CourseData);
-      var EncriptedData = this.EncrDecrService.set(StringifyedData);
-      this.router.navigate(['/home/courseupload'], { queryParams: { EditData: EncriptedData } });
-    }
-  }
 
 
 

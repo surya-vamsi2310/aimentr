@@ -11,6 +11,7 @@ import {
 import { APIURL } from '../../url'
 import { map } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from "ngx-spinner";
 
 // import { MatDialogRef } from '@angular/material'
 enum roles {
@@ -55,7 +56,8 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private EncrDecrService: EncrDecrService,
-    private toastr: ToastrService, ) { }
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
   }
@@ -81,11 +83,12 @@ export class RegisterComponent implements OnInit {
     const formData: any = new FormData();
     const files: Array<File> = this.filesToUpload;
     formData.append("resume", files[0]);
+    this.spinner.show();
     var url = APIURL.EXTRACT_RESUME;
     this.http.post(url, formData, { headers: {} }).subscribe(
       (response: Data) => {
         console.log(response)
-
+        this.spinner.hide();
         var ExtractData = response.Data;
 
         this.ExtractedData = {

@@ -101,7 +101,7 @@
             </div>
             <div class="col-md-9">
 
-                <mdb-card class="my-3">
+                <mdb-card class="my-3" *ngFor="let item of MentorsList">
                     <mdb-card-body>
                         <mdb-card-title>
                             <div class="row">
@@ -109,13 +109,13 @@
                                     <img src="./assets/images/icons/user.png" alt="user" width="50px">
                                 </div>
                                 <div class="col-md-4">
-                                    <p class="h6 mb-0"> <b> Lorem ipsum dolor hello </b></p>
+                                    <p class="h6 mb-0"> <b>{{item.firstname}} {{item.lastname}} </b></p>
                                     <h4>Founder, <small class="grey-text"> 4 days ago</small></h4>
                                 </div>
 
                                 <div class="col-md-3">
                                     <b> Skills:</b>
-                                    <h5>Python, Machine learning</h5>
+                                    <h5>{{item.education.skills}}</h5>
                                 </div>
                                 <div class="col-md-2">
                                     <b> Average Cost: </b>
@@ -138,7 +138,7 @@
                                         <button mdbBtn type="button" size="sm" color="cyan"
                                             mdbWavesEffect>Follow</button>
                                         <button mdbBtn type="button" size="sm" color="pink" mdbWavesEffect
-                                            routerLink="/home/dashboard">View
+                                             (click)="viewDashboard(item)" >View
                                             Dashboard</button>
                                     </div>
                                 </div>
@@ -322,7 +322,7 @@
                     </div>
 
                     <div class="col-md-5">
-                        <div class="mb-3">
+                        <div class="mb-3">  
                             <h3 class="mb-2">Contact interests</h3>
                             <ul class="list-group">
                                 <li class="list-group-item border-0 p-0">

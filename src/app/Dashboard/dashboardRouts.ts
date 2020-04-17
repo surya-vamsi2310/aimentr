@@ -7,12 +7,13 @@ import { VideoComponent } from './video/video.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { StudentComponent } from './student/student.component';
 import { CoursesComponent } from './courses/courses.component';
+import { StudentviewMentordashboardComponent } from './studentview-mentordashboard/studentview-mentordashboard.component';
 
 
 export const Routes = [
-    
-       
-        {
+
+
+    {
         path: 'home', component: DashboardComponent,
         children: [
             {
@@ -20,15 +21,15 @@ export const Routes = [
                 component: DetailCourseComponent
             },
             {
-                path : "courseview",
-                component : HomeScreenComponent 
+                path: "courseview",
+                component: HomeScreenComponent
             },
             {
                 path: "dashboard",
                 component: DashboardCoursesComponent
-            }, 
+            },
             {
-                path:'video',component:VideoComponent
+                path: 'video', component: VideoComponent
             },
             {
                 path: "courseupload",
@@ -45,10 +46,14 @@ export const Routes = [
             {
                 path: "courses",
                 component: CoursesComponent
-            }
+            },
+            {
+                path: "student/mentordashboard",
+                component: StudentviewMentordashboardComponent
+            },
         ]
-    
+
     },
-   
+
 
 ]

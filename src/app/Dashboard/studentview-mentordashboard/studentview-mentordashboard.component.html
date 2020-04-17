@@ -213,11 +213,9 @@
                                             <div>
 
                                                 <button type="button" mdbBtn size="sm" color="primary" class="rounded ml-0"
-                                                    outline="true" mdbWavesEffect>Followers</button>
+                                                    outline="true" mdbWavesEffect>Follow</button>
                                                 <button type="button" mdbBtn size="sm" color="success"
-                                                    class="rounded" outline="true" mdbWavesEffect>Requests</button>
-                                                <button type="button" mdbBtn size="sm" color="cyan" class="rounded"
-                                                    outline="true" mdbWavesEffect>View Profile</button>
+                                                    class="rounded" outline="true" mdbWavesEffect>message</button>
                                             </div>
 
                                         </div>
@@ -270,18 +268,7 @@
                                                 <mdb-icon fab icon="github fa-2x" class="blue-text"></mdb-icon>
                                             </a>
                                         </div>
-                                        <!-- <div class="col-2">
-                                            <a href="Javascript:Void(0)">
-                                                <mdb-icon fab icon="twitter-square fa-2x" class="blue-text">
-                                                </mdb-icon>
-                                            </a>
-                                        </div>
-                                        <div class="col-2">
-                                            <a href="Javascript:Void(0)">
-                                                <mdb-icon fab icon="facebook-square fa-2x" class="blue-text">
-                                                </mdb-icon>
-                                            </a>
-                                        </div> -->
+                                      
                                         <div class="col-2">
                                             <a href="Javascript:Void(0)">
                                                 <mdb-icon fab icon="linkedin-in fa-2x" class="blue-text"></mdb-icon>
@@ -313,15 +300,12 @@
 
 
 
-
-
-
             <div class="col-md-12">
                 <div class="row my-3">
                     <div class="col-md-12 mb-3">
-                        <h2>My Courses</h2>
+                        <!-- <h2>My Courses</h2> -->
                         <div class="row">
-                            <div class="col-md-5">
+                            <!-- <div class="col-md-5">
                                 <a href="javascript:void(0)" class="mr-5" routerLink="/home/courseupload">
                                     <button mdbBtn type="button" color="pink"
                                         class="AddcourseBtn p-0 rounded-circle mr-2 " mdbWavesEffect> +
@@ -331,7 +315,7 @@
                                 <a href="javascript:void(0)" class="ml-5">
                                     <mat-slide-toggle name="EditMode" [(ngModel)]="EditMode">Editmode</mat-slide-toggle>
                                 </a>
-                            </div>
+                            </div> -->
 
                             <div class="col text-right">
                                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
@@ -348,20 +332,14 @@
 
 
                     <div class="col-md-4 my-3" *ngFor="let item of AvailableCourses">
-                        <mdb-card class="CourseCards" [ngClass]="{'z-depth-2': EditMode , 'cursor-pointer': EditMode }"
-                            (click)="EditCourse(item)">
+                        <mdb-card class="CourseCards">
                             <mdb-card-body class="CourseCardBody">
-                                <!-- <mdb-icon far icon="edit" class="float-right cursor-pointer pink-text " size="lg" *ngIf="EditMode"
-                                   ></mdb-icon> -->
-                                <!-- <mdb-card-title> -->
                                 <h2 class="text-uppercase pl-0">{{item.courseName}}</h2>
-                                <!-- </mdb-card-title> -->
                                 <mdb-card-text>
                                     <div class="row text-uppercase my-4">
                                         <div class="col-md-5">
                                             <div class="row">
                                                 <div class="col-3 text-center pt-2 p-0">
-                                                    <!-- <mdb-icon far icon="clone" size="2x"></mdb-icon> -->
                                                     <mdb-icon far icon="window-restore" size="2x"></mdb-icon>
                                                 </div>
                                                 <div class="col-9 pl-2">
@@ -373,7 +351,6 @@
                                         <div class="col-md-4">
                                             <div class="row">
                                                 <div class="col-3 text-center pt-2 p-0">
-                                                    <!-- <mdb-icon fas icon="sort-amount-up-alt"></mdb-icon> -->
                                                     <mdb-icon fas icon="sort-amount-up-alt" size="2x"></mdb-icon>
                                                 </div>
                                                 <div class="col-9 pl-2">
@@ -386,7 +363,6 @@
                                             <div class="row">
                                                 <div class="col-3 text-center pt-2 p-0">
                                                     <mdb-icon fas icon="hand-holding-usd" size="2x"></mdb-icon>
-                                                    <!-- <mdb-icon fas icon="rupee-sign" size="2x"></mdb-icon> -->
                                                 </div>
                                                 <div class="col-9 pl-3 pr-0">
                                                     <small class="grey-text"> Cost </small>
@@ -415,7 +391,6 @@
                                         <div class="col-md-8 mt-4">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <!-- warn -->
                                                     <mat-progress-bar mode="determinate" color="primary"
                                                         value="{{item.CompletedDuration}}"></mat-progress-bar>
                                                 </div>
@@ -430,17 +405,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row mt-4">
-                                        <div class="col-6">
+                                    <div class="row mt-4 justify-content-end">
+                                        <!-- <div class="col-6">
                                             <button mdbBtn type="button" block="true" color="info" outline="true"
-                                                size="sm" class="px-1" mdbWavesEffect [disabled]="EditMode">go to
-                                                classroom</button>
-                                        </div>
-                                        <div class="col-6 ">
+                                                size="sm" class="px-1" mdbWavesEffect>go to classroom</button>
+                                        </div> -->
+                                        <div class="col-7">
                                             <button mdbBtn type="button" block="true" color="info" outline="true"
-                                                size="sm" class="px-1" mdbWavesEffect (click)="CourseOverView(item)"
-                                                [disabled]="EditMode">course
-                                                materials</button>
+                                                size="sm"  mdbWavesEffect
+                                                (click)="CourseOverView(item)">course materials</button>
                                         </div>
                                     </div>
                                 </mdb-card-text>
@@ -448,100 +421,6 @@
                         </mdb-card>
 
                     </div>
-                    <!-- <div class="col-md-6 my-3">
-                        <mdb-card class="CourseCards cursor-pointer">
-                            <mdb-card-body class="px-5">
-                                <mdb-card-title>
-                                    <small class="grey-text">Wmba-60-23</small>
-                                    <h2 class="text-uppercase">Managing people and programming collaboration.</h2>
-                                </mdb-card-title>
-                                <mdb-card-text>
-                                    <div class="row text-uppercase my-4">
-                                        <div class="col-md-5">
-                                            <div class="row">
-                                                <div class="col-3 text-center pt-2 p-0">
-                                                    <mdb-icon far icon="clone" size="2x"></mdb-icon>
-                                                </div>
-                                                <div class="col-9 p-0">
-                                                    <small class="grey-text"> instructor </small>
-                                                    <h5>robert finkelmeier</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="row">
-                                                        <div class="col-3 text-center pt-2 p-0">
-                                                            <mdb-icon far icon="clock" size="2x"></mdb-icon>
-                                                        </div>
-                                                        <div class="col-9 pl-2">
-                                                            <small class="grey-text"> Value </small>
-                                                            <h5>3 credits </h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="row">
-                                                        <div class="col-3 text-center pt-2 p-0">
-                                                            <mdb-icon far icon="folder-open" size="2x"></mdb-icon>
-                                                        </div>
-                                                        <div class="col-9 pl-2">
-                                                            <small class="grey-text"> Subject </small>
-                                                            <h5>History</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row text-uppercase">
-                                        <div class="col-md-4">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <small class="grey-text"> duration </small>
-                                                </div>
-                                                <div class="col-6 pr-0">
-                                                    <p class="h1">41</p>
-                                                </div>
-                                                <div class="col-6 pl-0 pt-1">
-                                                    <mdb-icon far icon="calendar" class="amber-text"></mdb-icon>
-                                                    <h6>days</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8 mt-4">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
-                                                </div>
-                                                <div class="col-6">
-                                                    <small class="grey-text "> jan/2019 </small>
-                                                </div>
-                                                <div class="col-6 text-right">
-                                                    <small class="grey-text"> may/2019 </small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-4">
-                                        <div class="col-6">
-                                            <button mdbBtn type="button" block="true" color="info" outline="true"
-                                                size="sm" class="px-1" mdbWavesEffect>go to classroom</button>
-                                        </div>
-                                        <div class="col-6 ">
-                                            <button mdbBtn type="button" block="true" color="info" outline="true"
-                                                size="sm" class="px-1" mdbWavesEffect
-                                                routerLink="/home/courseview">course
-                                                materials</button>
-                                        </div>
-                                    </div>
-                                </mdb-card-text>
-                            </mdb-card-body>
-                        </mdb-card>
-
-                    </div> -->
-
 
                 </div>
 

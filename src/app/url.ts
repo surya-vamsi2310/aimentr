@@ -29,7 +29,9 @@ export const APIURL = {
     GET_USERS_BY_ROLE: baseUrl + 'getUsersByRole',
     GET_USERS_BY_QUERY: baseUrl + 'queryUsers',
 
+    GET_USERS_FOR_FILTERS: baseUrl + 'filterUsersAndCourses',
 
+    
 
     //Course 
     ADD_COURSE: baseUrl + 'addCourse',
