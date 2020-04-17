@@ -7,6 +7,7 @@ import { VideoComponent } from './video/video.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { StudentComponent } from './student/student.component';
 import { CoursesComponent } from './courses/courses.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 export const Routes = [
@@ -43,8 +44,12 @@ export const Routes = [
                 component: StudentComponent
             },
             {
-                path: "courses",
+                path: "studentProfile",
                 component: CoursesComponent
+            },
+            {
+                path: "payment",
+                component: PaymentComponent
             }
         ]
     
