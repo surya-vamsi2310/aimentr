@@ -87,7 +87,7 @@ import { VideoComponent } from './video/video.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { StudentComponent } from './student/student.component';
 import { CoursesComponent } from './courses/courses.component';
-import { StudentviewMentordashboardComponent } from './studentview-mentordashboard/studentview-mentordashboard.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -104,7 +104,7 @@ import { StudentviewMentordashboardComponent } from './studentview-mentordashboa
         ViewProfileComponent,
         StudentComponent,
         CoursesComponent,
-        StudentviewMentordashboardComponent
+        PaymentComponent
     ],
     imports: [
         BrowserModule,
