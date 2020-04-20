@@ -9,6 +9,8 @@ import { StudentComponent } from './student/student.component';
 import { CoursesComponent } from './courses/courses.component';
 import { PaymentComponent } from './payment/payment.component';
 import {StudentviewMentordashboardComponent} from './studentview-mentordashboard/studentview-mentordashboard.component'
+import { RequestComponent } from './request/request.component';
+import { LivevideoSessionComponent } from './livevideo-session/livevideo-session.component';
 
 
 
@@ -57,6 +59,14 @@ export const Routes = [
                 path: "student/mentordashboard",
                 component: StudentviewMentordashboardComponent
             },
+            {
+                path: "requests",
+                component: RequestComponent
+            },
+            {
+                path:"livevideo",
+                component:LivevideoSessionComponent
+            }
             
         ]
 
