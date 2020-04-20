@@ -31,7 +31,7 @@ export const APIURL = {
 
     GET_USERS_FOR_FILTERS: baseUrl + 'filterUsersAndCourses',
 
-    
+
 
     //Course 
     ADD_COURSE: baseUrl + 'addCourse',
@@ -54,6 +54,20 @@ export const APIURL = {
     UPDATE_SUB_TOPIC_PROGRAMMING_STATUS: baseUrl + 'updateSubTopicProgrammingStatus',
     UPDATE_SUB_TOPIC_VIDEO_URL: baseUrl + 'updateSubTopicVideoUrl',
 
+
+    //User Completed Videos
+    ADD_USER_COMPLETED_VIDEOS_OF_THE_COURSE: baseUrl + 'AddUserCompletedVideosOftheCourse',
+    GET_USER_COMPLETED_VIDEOS_OF_THE_COURSE: baseUrl + 'getUserCompletedVideosOftheCourse',
+
+
+    //Payment 
+    MAKE_PAYMENT: baseUrl + 'makePayment',
+    GET_BEFORE_PAID_PAYMENT_USER_DETAILS: baseUrl + 'getBeforePaidPaymentDetails',
+    DELETE_BEFORE_PAID_PAYMENT_USER_DETAILS: baseUrl + 'DeleteBeforePaidPaymentDetails',
+    INSERT_PAYMENT_DETAILS: baseUrl + 'InsertPaymentDetails',
+    DELETE_PAYMENT_DETAILS: baseUrl + 'DeletePaymentDetails',
+    GET_PAID_COURSES: baseUrl + 'getPaidCourses',
+    GET_PAID_USERS: baseUrl + 'getPaidUsers',
 
 
 

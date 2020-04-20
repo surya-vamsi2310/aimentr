@@ -385,129 +385,46 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <p class="h4">Foundations of front-end Web Developement</p>
+                <p class="h4">Course Name : <span class="cyan-text">{{ViewCourse.courseName}}</span></p>
             </div>
             <div class="col-md-3 border rounded pt-3">
                 <ul class="list-group">
-                    <li class="list-group-item cursor-pointer p-0">
+                    <li class="list-group-item p-0">
                         <mat-accordion>
-                            <mat-expansion-panel class="m-0  shadow-none">
+                            <mat-expansion-panel class="m-0  shadow-none" *ngFor="let item of AllTopics; let i = item">
                                 <mat-expansion-panel-header class="border-bottom">
                                     <mat-panel-title>
-                                        Course Overview
+                                        {{item.topicName}}
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
 
                                 <ul class="list-group SubVideoitems mt-3">
-                                    <li class="list-group-item border-light mb-3">
+                                    <a class="list-group-item border-light mb-3 cursor-pointer"
+                                        *ngFor="let subItem of item.SubTopicsData; let k = item"
+                                        href="{{subItem.videoUrl}}" target="VideoFrame"
+                                        [ngClass]="{'videosIncomplete': (!subItem.videoCompleted && !subItem.videoRunning)}"
+                                        (click)="SelectedVideo(subItem)">
                                         <div class="row">
                                             <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
+                                                <mdb-icon fas icon="lock"
+                                                    [ngClass]="{'d-none':( subItem.videoCompleted || subItem.videoRunning)}">
+                                                </mdb-icon>
+                                                <!-- <mdb-icon far icon="check-circle" [ngClass]="{'d-none': !subItem.videoCompleted}"></mdb-icon> -->
+                                                <mdb-icon fas icon="check" class="green-text" [ngClass]="{'d-none': !subItem.videoCompleted}"></mdb-icon>
+                                            
+                                                <mdb-icon fas icon="play" class="cyan-text" [ngClass]="{'d-none': ( subItem.videoCompleted || !subItem.videoRunning ) }"></mdb-icon>
                                             </div>
                                             <div class="col-10 text-left pl-0">
-                                                <b class="float-right">4m</b>
-                                                <h4 class="mb-0">Why You Need to Master Extension</h4>
+                                                <!-- <b class="float-right">4m</b> -->
+                                                <h4 class="mb-0">{{subItem.subTopicName}}</h4>
                                             </div>
                                         </div>
-
-                                    </li>
-                                    <li class="list-group-item border-light mb-3">
-                                        <div class="row">
-                                            <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
-                                            </div>
-                                            <div class="col-10 text-left pl-0">
-                                                <b class="float-right">4m</b>
-                                                <h4 class="mb-0">Why You Need  Extension</h4>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <li class="list-group-item border-light mb-3">
-                                        <div class="row">
-                                            <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
-                                            </div>
-                                            <div class="col-10 text-left pl-0">
-                                                <b class="float-right">5m</b>
-                                                <h4 class="mb-0">Why You Need to Master Next lession </h4>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <li class="list-group-item border-light mb-3">
-                                        <div class="row">
-                                            <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
-                                            </div>
-                                            <div class="col-10 text-left pl-0">
-                                                <b class="float-right">4m</b>
-                                                <h4 class="mb-0">Why Master Preview of Extension</h4>
-                                            </div>
-                                        </div>
-
-                                    </li>
+                                    </a>
                                 </ul>
                             </mat-expansion-panel>
-                            <mat-expansion-panel class="m-0  shadow-none">
-                                <mat-expansion-panel-header class="border-bottom">
-                                    <mat-panel-title>
-                                        Self aware panel
-                                    </mat-panel-title>
-                                </mat-expansion-panel-header>
 
-                                <ul class="list-group SubVideoitems mt-3">
-                                    <li class="list-group-item border-light mb-3">
-                                        <div class="row">
-                                            <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
-                                            </div>
-                                            <div class="col-10 text-left pl-0">
-                                                <b class="float-right">4m</b>
-                                                <h4 class="mb-0">Why You Need to Master Extension</h4>
-                                            </div>
-                                        </div>
 
-                                    </li>
-                                    <li class="list-group-item border-light mb-3">
-                                        <div class="row">
-                                            <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
-                                            </div>
-                                            <div class="col-10 text-left pl-0">
-                                                <b class="float-right">4m</b>
-                                                <h4 class="mb-0">Why You Need  Extension</h4>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <li class="list-group-item border-light mb-3">
-                                        <div class="row">
-                                            <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
-                                            </div>
-                                            <div class="col-10 text-left pl-0">
-                                                <b class="float-right">5m</b>
-                                                <h4 class="mb-0">Why You Need to Master Next lession </h4>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <li class="list-group-item border-light mb-3">
-                                        <div class="row">
-                                            <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
-                                            </div>
-                                            <div class="col-10 text-left pl-0">
-                                                <b class="float-right">4m</b>
-                                                <h4 class="mb-0">Why Master Preview of Extension</h4>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                </ul>
-                            </mat-expansion-panel>
-                            <mat-expansion-panel class="m-0  shadow-none">
+                            <!-- <mat-expansion-panel class="m-0  shadow-none">
                                 <mat-expansion-panel-header class="border-bottom">
                                     <mat-panel-title>
                                         name
@@ -518,7 +435,7 @@
                                     <li class="list-group-item border-light mb-3">
                                         <div class="row">
                                             <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
+                                                <mdb-icon fas icon="lock"></mdb-icon>
                                             </div>
                                             <div class="col-10 text-left pl-0">
                                                 <b class="float-right">4m</b>
@@ -530,11 +447,11 @@
                                     <li class="list-group-item border-light mb-3">
                                         <div class="row">
                                             <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
+                                                <mdb-icon fas icon="lock"></mdb-icon>
                                             </div>
                                             <div class="col-10 text-left pl-0">
                                                 <b class="float-right">4m</b>
-                                                <h4 class="mb-0">Why You Need  Extension</h4>
+                                                <h4 class="mb-0">Why You Need Extension</h4>
                                             </div>
                                         </div>
 
@@ -542,7 +459,7 @@
                                     <li class="list-group-item border-light mb-3">
                                         <div class="row">
                                             <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
+                                                <mdb-icon fas icon="lock"></mdb-icon>
                                             </div>
                                             <div class="col-10 text-left pl-0">
                                                 <b class="float-right">5m</b>
@@ -554,7 +471,7 @@
                                     <li class="list-group-item border-light mb-3">
                                         <div class="row">
                                             <div class="col-2 pr-0">
-                                                <mdb-icon fas icon="lock" ></mdb-icon>
+                                                <mdb-icon fas icon="lock"></mdb-icon>
                                             </div>
                                             <div class="col-10 text-left pl-0">
                                                 <b class="float-right">4m</b>
@@ -564,20 +481,16 @@
 
                                     </li>
                                 </ul>
-                            </mat-expansion-panel>
+                            </mat-expansion-panel> -->
 
                         </mat-accordion>
                     </li>
                 </ul>
             </div>
             <div class="col-md-9 ">
-                <!-- <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg"
-                        allowfullscreen></iframe>
-                </div> -->
                 <div class="embed-responsive embed-responsive-16by9 rounded">
-                    <iframe class="embed-responsive-item"
-                        src="https://player.vimeo.com/video/76979871?api=1&player_id=player1" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item " name="VideoFrame" id="myIframe" src=""
+                        allowfullscreen></iframe>
                 </div>
             </div>
         </div>

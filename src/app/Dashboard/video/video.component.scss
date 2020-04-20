@@ -1,10 +1,9 @@
-
 // .container-fluid {
 //  padding-top: 10px;
 //  padding: 0;
 //  //background-color: #0a0a0a;
 //  color:black;
- 
+
 // }
 
 // ::ng-deep .a {
@@ -35,18 +34,15 @@
 // // background-color: #212121
 // }
 
-
-
 //  .mat-expansion-panel {
 //  //padding: 5px;
 //  margin-top: 5px;
-
 
 // }
 
 // ::ng-deep .mat-expansion-panel-body {
 //  padding: 10px 14px 16px 10px !important;
- 
+
 // }
 
 // hr {
@@ -171,7 +167,7 @@
 //    padding: 0;
 //    margin: 0;
 //  }
- 
+
 //  iframe {
 //    width: 100%;
 //    height: 270px;
@@ -187,25 +183,25 @@
 //    padding-top: 20px;
 //  }
 //  .example-container {
- 
+
 //    position:absolute ;
 //    padding: 0;
 //    margin: 0;
 //    border-color: red;
 //  }
- 
+
 //  .example-sidenav-content {
 //    display: flex;
 //    height: 100%;
 //    align-items: center;
 //    justify-content: start;
 //  }
- 
+
 //  .example-sidenav {
 //   // padding: 20px;
 //   position: absolute;
 //  }
- 
+
 //  .toggle{
 //    display: block;
 //  }
@@ -227,7 +223,7 @@
 // }
 
 // .example-container {
- 
+
 //  height: 550px;
 //  padding: 0;
 //  margin: 0;
@@ -241,13 +237,22 @@
 //  justify-content: start;
 // }
 
-
-
-
-
-
-.SubVideoitems{
-  li{
-    border:1px solid;
+.SubVideoitems {
+  a {
+    border: 1px solid;
+    color: black;
   }
+}
+
+.SubVideoitems {
+  a:hover {
+    color: #00bcd4;
+    border: 1px solid #00bcd4 !important;
+  }
+}
+
+// ng classes
+.videosIncomplete{
+  cursor: not-allowed !important;
+  pointer-events: none;
 }

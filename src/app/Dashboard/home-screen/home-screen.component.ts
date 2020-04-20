@@ -1,17 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, FormControl, NgModel } from '@angular/forms';
 import { CommonService } from '../../Services/common.service';
 import { Router, NavigationExtras, ActivatedRoute, Data } from '@angular/router';
 import { EncrDecrService } from '../../Services/encr-decr.service'
 import { APIURL } from '../../url';
 import { ToastrService } from 'ngx-toastr';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import {
-  HttpClient,
-  HttpRequest,
-  HttpEventType,
-  HttpResponse, HttpHeaders
-} from '@angular/common/http';
 
 @Component({
   selector: 'app-home-screen',
@@ -19,10 +11,10 @@ import {
   styleUrls: ['./home-screen.component.scss']
 })
 export class HomeScreenComponent implements OnInit {
-
+  roles;
   userInfo;
   UrlData;
-  VoewCourse = {
+  ViewCourse = {
     mentor: "",
     courseId: null,
     courseName: "",
@@ -48,9 +40,9 @@ export class HomeScreenComponent implements OnInit {
   AllSubtopics = [];
   SelectedTopicName = "";
 
+  courseUrldata;
+
   constructor(
-    private http: HttpClient,
-    private _formBuilder: FormBuilder,
     private CommonService: CommonService,
     private router: Router,
     private route: ActivatedRoute,
@@ -58,11 +50,13 @@ export class HomeScreenComponent implements OnInit {
     private toastr: ToastrService,
   ) {
     this.userInfo = this.CommonService.getuserInfo();
+    this.roles = this.CommonService.getRoles()
     console.log("userInfo", this.userInfo);
 
     this.route.queryParams.subscribe(params => {
 
       if (params.Data) {
+        this.courseUrldata = params.Data;
         var DecriptedData = this.EncrDecrService.get(params.Data);
         this.UrlData = JSON.parse(DecriptedData);
         this.CourseDetails = {
@@ -93,7 +87,7 @@ export class HomeScreenComponent implements OnInit {
         if (data.Status == 200) {
           var SelectedCourse = data.Data[0];
 
-          this.VoewCourse = {
+          this.ViewCourse = {
             mentor: SelectedCourse.mentor,
             courseId: SelectedCourse.courseId,
             courseName: SelectedCourse.courseName,
@@ -109,7 +103,7 @@ export class HomeScreenComponent implements OnInit {
             endDate: SelectedCourse.endDate,
           };
 
-          console.log("GetAvailableCourses===>", this.VoewCourse);
+          console.log("GetAvailableCourses===>", this.ViewCourse);
           this.GetTopicsList();
 
         }
@@ -180,5 +174,13 @@ export class HomeScreenComponent implements OnInit {
   //   this.router.navigate(['/home/courseview'], { queryParams: { Data: EncriptedData } });
 
   // }
+
+
+  buyCourse() {
+    // if(this.userInfo.role == this.roles.student ){
+    this.router.navigate(['/home/payment'], { queryParams: { Data: this.courseUrldata } });
+    // }
+  }
+
 
 }

@@ -86,9 +86,11 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { VideoComponent } from './video/video.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { StudentComponent } from './student/student.component';
-import { CoursesComponent } from './courses/courses.component';
-import { PaymentComponent } from './payment/payment.component';
-import {StudentviewMentordashboardComponent} from './studentview-mentordashboard/studentview-mentordashboard.component'
+import { PaymentComponent } from './Payments/payment/payment.component';
+import { StudentviewMentordashboardComponent } from './studentview-mentordashboard/studentview-mentordashboard.component';
+import { PaymentSuccessComponent } from './Payments/payment-success/payment-success.component';
+import { PaymentFailedComponent } from './Payments/payment-failed/payment-failed.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component'
 
 
 
@@ -102,9 +104,11 @@ import {StudentviewMentordashboardComponent} from './studentview-mentordashboard
         VideoComponent,
         ViewProfileComponent,
         StudentComponent,
-        CoursesComponent,
         PaymentComponent,
-        StudentviewMentordashboardComponent
+        StudentviewMentordashboardComponent,
+        PaymentSuccessComponent,
+        PaymentFailedComponent,
+        StudentDashboardComponent
     ],
     imports: [
         BrowserModule,

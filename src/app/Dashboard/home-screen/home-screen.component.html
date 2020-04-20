@@ -39,17 +39,17 @@
                                             COURSE OVERVIEW
                                         </span>
                                     </h3>
-                                    <h1 class="Headding1">{{VoewCourse.courseName}} </h1>
+                                    <h1 class="Headding1">{{ViewCourse.courseName}} </h1>
                                     <h2>
                                         <span class="CourseOverViewBorder pb-1">
                                             Prerequisites
                                         </span>
                                     </h2>
                                     <h4>
-                                        {{VoewCourse.prerequisites}}
+                                        {{ViewCourse.prerequisites}}
                                     </h4>
                                     <div class="mt-4 pt-4">
-                                        <button type="button" mdbBtn color="pink" mdbWavesEffect>
+                                        <button type="button" mdbBtn color="pink" mdbWavesEffect (click)="buyCourse()">
                                             Buy Course
                                         </button>
                                     </div>
@@ -70,22 +70,22 @@
                         <div class="row">
                             <div class="col-md-6 pr-4">
                                 <p class="h2">About this Course</p>
-                                <p class="aboutthisCourseContent">{{VoewCourse.description}}</p>
+                                <p class="aboutthisCourseContent">{{ViewCourse.description}}</p>
                             </div>
 
                             <div class="col-md-6 px-5">
                                 <div class="row border-bottom pb-4">
                                     <div class="col-md-4">
                                         <h4 class="text-uppercase grey-text">COURSE COST</h4>
-                                        <p class="h6">Rs {{VoewCourse.cost}}</p>
+                                        <p class="h6">Rs {{ViewCourse.cost}}</p>
                                     </div>
                                     <div class="col-md-4">
                                         <h4 class="text-uppercase grey-text">TIMELINE</h4>
-                                        <p class="h6">{{VoewCourse.duration}} (Days)</p>
+                                        <p class="h6">{{ViewCourse.duration}} (Days)</p>
                                     </div>
                                     <div class="col-md-4">
                                         <h4 class="text-uppercase grey-text">SKILL LEVEL</h4>
-                                        <p class="h6">{{VoewCourse.skillLevel}}</p>
+                                        <p class="h6">{{ViewCourse.skillLevel}}</p>
                                     </div>
                                 </div>
                                 <div class="row py-4">
