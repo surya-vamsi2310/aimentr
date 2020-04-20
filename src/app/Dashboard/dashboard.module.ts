@@ -86,11 +86,11 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { VideoComponent } from './video/video.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { StudentComponent } from './student/student.component';
-import { CoursesComponent } from './courses/courses.component';
-import { PaymentComponent } from './payment/payment.component';
+import { PaymentComponent } from './Payments/payment/payment.component';
 import {StudentviewMentordashboardComponent} from './studentview-mentordashboard/studentview-mentordashboard.component';
 import { RequestComponent } from './request/request.component';
 import { LivevideoSessionComponent } from './livevideo-session/livevideo-session.component'
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 
 
 
@@ -104,11 +104,11 @@ import { LivevideoSessionComponent } from './livevideo-session/livevideo-session
         VideoComponent,
         ViewProfileComponent,
         StudentComponent,
-        CoursesComponent,
         PaymentComponent,
         StudentviewMentordashboardComponent,
         RequestComponent,
-        LivevideoSessionComponent
+        LivevideoSessionComponent,
+        StudentDashboardComponent
     ],
     imports: [
         BrowserModule,
