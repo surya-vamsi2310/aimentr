@@ -37,9 +37,6 @@ export class CommonService {
       };
       return roles;
     }
-  
-
-
   getHeaders() {
     const options = { headers: {} };
     options.headers['Content-Type'] = 'application/json';
@@ -51,9 +48,6 @@ export class CommonService {
     }
     return options;
   }
-
-
-
   loginOrRegister(url, data): Observable<Object> {
     this.spinner.show();
     return this.http.post(url, data, this.getHeaders()).pipe(
@@ -66,28 +60,19 @@ export class CommonService {
           localStorage.setItem('userInfo', this.EncrDecrService.set(encriptedUserInfo));
 
         }
-
         return response
 
       })
     );
   }
-
-
   isLoggedIn() {
     this.loadToken()
     return !!localStorage.getItem('userInfo');
   }
-
   loadToken() {
     const token = localStorage.getItem('jwtToken');
     this.authToken = token;
   }
-
-
-
-
-
   getUserDetails(prop) {
     // if (this.isLoggedIn() && !isNullOrUndefined(localStorage.getItem('userInfo')) && localStorage.getItem('userInfo') != 'undefined') {
     //   // const userDetails = JSON.parse(this.cookieSrv.get('userInfo'));
@@ -101,8 +86,6 @@ export class CommonService {
     //   return null;
     // }
   }
-
-
   postMethod(url, data): Observable<Object> {
     this.spinner.show();
     return this.http.post(url, data, this.getHeaders()).pipe(
@@ -112,7 +95,6 @@ export class CommonService {
       })
     );
   }
-
   getMethod(url): Observable<Object> {
     this.spinner.show();
     return this.http.get(url, this.getHeaders()).pipe(map(response => {

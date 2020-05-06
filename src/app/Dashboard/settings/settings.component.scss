@@ -1,0 +1,34 @@
+example-viewport {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+  }
+  
+  .example-item {
+    height: 150px;
+  }
+  .side:hover, .side-active{
+      border-left: 1px solid blue;
+      background-color: lavender;
+      color: blue;
+
+  }
+  .dashboard {
+    font-weight: 600;
+    color: #333;
+    line-height: 26px;
+    font-family: "Nunito", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+// .state:hover{
+//     color: green; 
+// }
+
+mat-slider {
+    width: 200px;
+    color: green;
+  }
+  .upload:hover{
+      background-color: blue !important;
+      color:white !important;
+  }
+  

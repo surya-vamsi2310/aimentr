@@ -1,0 +1,182 @@
+<div class="">
+    <div class="container py-5">
+        <p class="h3 dashboard">settings</p>
+
+        <mdb-card class="my-3">
+            <mdb-card-body>
+                <p class="h6 dashboard">
+                    <mdb-icon fas icon="user-circle" class="mx-1"></mdb-icon>My Account
+                </p>
+                <hr>
+                <div class="row">
+                    <div class="col-md-2 text-center py-3">
+                       <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid" width="120px">
+                    </div>
+                    <div class="col-md-10">
+                        <form>
+                            <div class="form-row">
+                                <div class="col dashboard">
+                                    <label for="first name">First Name</label>
+
+                                    <input mdbInput type="text" class="form-control" placeholder="First name">
+                                </div>
+
+                                <div class="col dashboard">
+                                    <label for="first name">Last Name</label>
+
+                                    <input mdbInput type="text" class="form-control" placeholder="Last name">
+                                </div>
+                            </div>
+                            <div class="form-row py-3 dashboard">
+                                <div class="col pt-1">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="first name">Account Type</label>
+                                        </div>
+                                        <div class="col-12 px-0 mr-3 ">
+                                            <button type="button" mdbBtn color="success" class="state" mdbWavesEffect>
+                                                <mdb-icon fas icon="user-circle" class="mx-1"></mdb-icon>Mentor
+                                            </button>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 pt-2 ">
+                                    <label for="first name" class="pb-2">Email</label>
+
+                                    <input mdbInput type="text" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </mdb-card-body>
+        </mdb-card>
+        <mdb-card class="my-3 py-3 dashboard">
+            <mdb-card-body>
+                <p class="h6 dashboard">
+                    <mdb-icon fas icon="user-circle" class="mx-1"></mdb-icon>My Profile
+                </p>
+                <hr>
+                <div class="row">
+                    
+                    <div class="col-md-7 py-2">
+                        <p class="h6">Skills <mdb-icon fas icon="info-circle"></mdb-icon>
+                        </p>
+                        
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="eg : angular ,css" aria-label="Recipient's username"
+                              aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                              <span class="input-group-text" id="basic-addon2"><mdb-icon fas icon="plus"></mdb-icon></span>
+                            </div>
+                          </div>
+                        <a href="">
+                            <mdb-badge default="true" class="px-2 py-2 mx-2 mt-3">
+                                <mdb-icon fas icon="times" class="mx-1"></mdb-icon>angular
+                            </mdb-badge>
+                        </a>
+                        <a href="">
+                            <mdb-badge default="true" class="px-2 py-2 mx-2 mt-3">
+                                <mdb-icon fas icon="times" class="mx-1"></mdb-icon>Python
+                            </mdb-badge>
+                        </a>
+                        <a href="">
+                            <mdb-badge default="true" class="px-2 py-2 mx-2 mt-3">
+                                <mdb-icon fas icon="times" class="mx-1"></mdb-icon>css
+                            </mdb-badge>
+                        </a>
+                        <a href="">
+                            <mdb-badge default="true" class="px-2 py-2 mx-2 mt-3">
+                                <mdb-icon fas icon="times" class="mx-1"></mdb-icon>Vue
+                            </mdb-badge>
+                        </a>
+                    </div>
+                    <div class="col-md-5 dashboard py-2">
+                        <p class="h6">Attachments</p>
+                        <div class="row">
+                            <div class="col-6">
+                            <mdb-card class="">
+                                <mdb-card-body>
+                                    <p class="text-grey">Cover Letter</p>
+                                    <p>PDF </p>
+                                    <button type="button" mdbBtn color="grey" size="sm" mdbWavesEffect>download</button>
+
+                                </mdb-card-body>
+                            </mdb-card>
+                        </div>
+                        <div class="col-6">
+                            <mdb-card>
+                                <mdb-card-body>
+                                    <p class="text-grey">Contract</p>
+                                    <p>Docx</p>
+                                    <button type="button" mdbBtn color="grey" size="sm" mdbWavesEffect>download</button>
+
+                                </mdb-card-body>
+                            </mdb-card>
+                        </div>
+                        </div>
+                        <div class="row py-3">
+                            <div class="col-6 ">
+                                <button type="button" mdbBtn color="primary" block="true" outline="true" class="upload" mdbWavesEffect>
+                                    Upload
+                                </button>
+                            </div>
+                            <div class="col-6 ml-0 pl-0">
+                                <p>Maximum file <br>size: 10 MB</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row dashboard py-2">
+                    <div class="col-md-6 py-2">
+                <p class="h6">Tag line</p>
+                <input mdbInput type="text" class="form-control" placeholder="iOS Expert + Node Dev ">
+                    </div>
+                    <div class="col-md-6 py-2">
+                        <p class="h6">Nationality</p>
+                        <select class="browser-default custom-select">
+                            <option selected>India</option>
+                            <option value="1">USA</option>
+                            <option value="2">Australia</option>
+                            <option value="3">China</option>
+                          </select>
+                    </div>
+                </div>
+                <p class="h6 pt-3 pb-2">Introduce Yourself</p>
+                <textarea type="text" id="form7" class="md-textarea form-control" mdbInput></textarea>
+            </mdb-card-body>
+        </mdb-card>
+<mdb-card class="py-3 my-3">
+    <mdb-card-body>
+        <p class="h6">
+            <mdb-icon fas icon="lock" class="mx-2"></mdb-icon>Password & Security
+        </p>
+        <hr>
+        <div class="row dashboard">
+            <div class="col-md-4 py-2">
+                <label for="input" class="h6">Current Password</label>
+                <input mdbInput type="text" class="form-control" placeholder=" ">
+
+            </div>
+            <div class="col-md-4 py-2">
+                <label for="input" class="h6">New Password</label>
+                <input mdbInput type="text" class="form-control" placeholder=" ">
+            </div>
+            <div class="col-md-4 py-2">
+                <label for="input" class="h6">Repeat Password</label>
+                <input mdbInput type="text" class="form-control" placeholder=" ">
+            </div>
+        </div>
+        <p class="pt-4 pb-2 h6 grey-text"> <mat-checkbox class="example-margin mx-2">
+        </mat-checkbox>Enable Two-Step Verification via Email</p>
+        <button type="button" mdbBtn color="primary" mdbWavesEffect>
+            Save changes
+        </button>
+    </mdb-card-body>
+</mdb-card>
+    </div>
+</div>

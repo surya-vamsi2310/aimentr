@@ -11,11 +11,11 @@ import { LivevideoSessionComponent } from './livevideo-session/livevideo-session
 import { PaymentComponent } from './Payments/payment/payment.component';
 import { StudentviewMentordashboardComponent } from './studentview-mentordashboard/studentview-mentordashboard.component'
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component'
-
-
-
+import { OnlineEditComponent } from './online-edit/online-edit.component';
+import { SettingsComponent } from './settings/settings.component';
+import { HomeProfileComponent } from './home-profile/home-profile.component';
+import { UploadCourseComponent } from './upload-course/upload-course.component';
 export const Routes = [
-
 
     {
         path: 'home', component: DashboardComponent,
@@ -66,6 +66,22 @@ export const Routes = [
             {
                 path:"livevideo",
                 component:LivevideoSessionComponent
+            },
+            {
+                path:"onlineedit",
+                component:OnlineEditComponent
+            },
+            {
+                path:"settings",
+                component:SettingsComponent
+            },
+            {
+                path:"home-profile",
+                component:HomeProfileComponent
+            },
+            {
+                path:"upload-course",
+                component:UploadCourseComponent
             }
             
 

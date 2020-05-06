@@ -91,6 +91,10 @@ import {StudentviewMentordashboardComponent} from './studentview-mentordashboard
 import { RequestComponent } from './request/request.component';
 import { LivevideoSessionComponent } from './livevideo-session/livevideo-session.component'
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { OnlineEditComponent } from './online-edit/online-edit.component';
+import { SettingsComponent } from './settings/settings.component';
+import { HomeProfileComponent } from './home-profile/home-profile.component';
+import { UploadCourseComponent } from './upload-course/upload-course.component';
 
 
 
@@ -108,7 +112,11 @@ import { StudentDashboardComponent } from './student-dashboard/student-dashboard
         StudentviewMentordashboardComponent,
         RequestComponent,
         LivevideoSessionComponent,
-        StudentDashboardComponent
+        StudentDashboardComponent,
+        OnlineEditComponent,
+        SettingsComponent,
+        HomeProfileComponent,
+        UploadCourseComponent
     ],
     imports: [
         BrowserModule,
@@ -133,6 +141,7 @@ import { StudentDashboardComponent } from './student-dashboard/student-dashboard
         NavbarModule,
         PopoverModule.forRoot(),
         TableModule,
+        
         TooltipModule.forRoot(),
         WavesModule.forRoot(),
         // MDB end=============

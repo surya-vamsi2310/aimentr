@@ -108,6 +108,7 @@
               "src/styles.scss"
             ],
             "scripts": []
+            
           }
         },
         "lint": {

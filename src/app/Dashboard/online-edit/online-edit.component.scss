@@ -1,0 +1,47 @@
+:host {
+    .edit {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+       justify-content: space-between;
+        background: none;
+    }
+    ::ng-deep {
+        
+        .mat-tab-group {
+            flex-direction: row;
+        }
+        .mat-tab-header {
+          border-bottom: none;
+        }
+        .mat-tab-header-pagination {
+            display: none !important;
+        }
+        .mat-tab-labels {
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            
+        
+        }
+        
+    
+    }
+}
+
+::ng-deep .mat-tab-list{
+    width: 100px !important;
+    margin-left: -45px;
+}
+::ng-deep .mat-ink-bar {
+    height:100% !important;
+    left: 98% !important;
+    width: 0.5px;
+    background-color: black !important;
+    
+}
+
+
+

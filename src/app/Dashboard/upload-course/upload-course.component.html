@@ -1,0 +1,83 @@
+<div class="container-fluid ">
+        <div class="row">
+            <div class="col-md-2 py-5 ">
+                <p class="px-2">Start</p>
+                  <ul class="list-data">
+                      <li class="py-2 px-2 cursor-pointer"><mdb-icon fas icon="th-large" class="mr-1"></mdb-icon>Dashboard</li>
+                      <li  class="py-2 px-2  cursor-pointer"><mdb-icon fas icon="comment-alt " class="mr-1"> </mdb-icon>Messages</li>
+                      <li  class="py-2 px-2  cursor-pointer"><mdb-icon far icon="star" class="mr-1"></mdb-icon>Bookmarks</li>
+                      <li  class="py-2 px-2  cursor-pointer"><mdb-icon fas icon="edit" class="mr-1"></mdb-icon>Reviews</li>
+                  </ul>
+            </div>
+            <div class="col-md-10 py-5 mainmenu">
+                <p class="mx-4">Post a course</p>
+                <mdb-card class="mx-4">
+                    <mdb-card-body>
+                        <p>
+                            <mdb-icon fas icon="folder-open" class="mr-1"></mdb-icon>Course Upload Form
+                        </p>
+                        <hr>
+                        <form>
+                            <div class="form-row">
+                                <div class="col-md-4 py-2">
+                                    <label for="first name">Course Name</label>
+                                    <input mdbInput type="text" class="form-control" placeholder="First name">
+                                </div>
+                                <div class="col-md-4 py-2">
+                                    <label for="first name"> Course Type</label>
+                                    <select class="browser-default custom-select">
+                                        <option selected>Select Course Type</option>
+                                        <option value="1">Full time</option>
+                                        <option value="2">Part time</option>
+                                        <option value="3">internship</option>
+                                    </select> </div>
+                                <div class="col-md-4 py-2">
+                                    <label for="first name">Course Category</label>
+                                    <select class="browser-default custom-select">
+                                        <option selected>Select Course Category</option>
+                                        <option value="1">USA</option>
+                                        <option value="2">Australia</option>
+                                        <option value="3">China</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-md-4 py-2">
+                                    <label for="first name">Course Cost</label>
+                                    <input mdbInput type="text" class="form-control" placeholder="Course Cost">
+                                </div>
+                                <div class="col-md-4 py-2 ">
+                                    <label for="first name">Course Duration</label>
+                                    <input mdbInput type="text" class="form-control" placeholder="Course Duration">
+                                </div>
+                                <div class="col-md-4 tags py-2">
+                                    <label for="first name">Tags</label>
+                                    <input mdbInput type="text" class="form-control " placeholder="Ex:angular">
+                                    <i>
+                                        <mdb-icon fas icon="plus" class="fa-m"></mdb-icon>
+                                    </i>
+                                </div>
+                            </div>
+                            <label for="first name">Course Description</label>
+                            <textarea type="text" id="form7" class="md-textarea form-control " mdbInput></textarea>
+                            <div class="row py-3 px-2">
+                                <span class="grey-text">
+                                    <button type="button" mdbBtn color="primary" outline="true" size="sm"
+                                        mdbWavesEffect>
+                                        upload
+                                    </button>
+                                    Images or documents that might be helpful in describing your job
+                                </span>
+                            </div>
+                        </form>
+                    </mdb-card-body>
+                </mdb-card>
+            
+                <div class="py-3 mx-3">
+                    <button type="button" mdbBtn color="primary" size="m" mdbWavesEffect>
+                        <mdb-icon fas icon="plus"></mdb-icon> post a job
+                    </button>
+                </div>
+            </div>
+        </div>
+</div>

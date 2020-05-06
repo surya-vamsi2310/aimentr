@@ -1,0 +1,20 @@
+.tags i{
+    position: absolute;
+    top:42px;
+    background-color: blue;
+   // left: 280px;
+   right: 30px;
+    color: white;
+    padding: 2px 4px;
+}
+.list-data{
+    list-style-type: none;
+    padding: 0;
+
+}
+.list-data li:hover{
+    background-color: #f0f0f0;
+}
+.mainmenu{
+    background-color: #fafafa;;
+}

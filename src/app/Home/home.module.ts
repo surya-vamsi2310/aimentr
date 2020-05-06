@@ -88,6 +88,8 @@ import { TranslationComponent } from './translation/translation.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { MentorshipRegistrationComponent } from './mentorship-registration/mentorship-registration.component';
 import { OtpVerifycationComponent } from './otp-verifycation/otp-verifycation.component';
+import { AboutComponent } from './about/about.component';
+import { LandingHeaderComponent } from './landing-header/landing-header.component';
 
 
 
@@ -103,6 +105,8 @@ import { OtpVerifycationComponent } from './otp-verifycation/otp-verifycation.co
         StudentProfileComponent,
         MentorshipRegistrationComponent,
         OtpVerifycationComponent,
+        AboutComponent,
+        LandingHeaderComponent
     ],
     imports: [
         BrowserModule,

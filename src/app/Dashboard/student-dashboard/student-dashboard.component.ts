@@ -94,7 +94,7 @@ export class StudentDashboardComponent implements OnInit {
                 // console.log("CompletedDays",CompletedDays , "Duration" , parseInt(course.duration) );
                 const CompletedPercentage = (CompletedDays * 100) / TotalDuration;
                 course.CompletedDuration = CompletedPercentage;
-                // console.log("CompletedPercentage",CompletedPercentage );
+                // console.log("CompletedPercen  tage",CompletedPercentage );
               } else {
                 // console.log("duration end")
                 course.CompletedDuration = 100;
